@@ -70,6 +70,8 @@ public class MainActivity extends AppCompatActivity {
         initView();
 
         initData();
+
+        //jenkins 在push到github后 自动构建，test
     }
 
     private void initData() {
