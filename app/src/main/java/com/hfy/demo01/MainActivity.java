@@ -45,8 +45,11 @@ public class MainActivity extends AppCompatActivity {
     @Inject
     Gson mGson1;
 
+    /**
+     * 懒加载
+     */
     @Inject
-    Lazy<Car> mCarLazy;//懒加载
+    Lazy<Car> mCarLazy;
 
 
 
