@@ -76,7 +76,7 @@ public class MainActivity extends AppCompatActivity {
     private void testDagger2() {
         //调用此句，mWatch、mGson
         DaggerMainActivityComponent.create().inject(this);
-
+        boolean equals = mWatch.equals("");
         mWatch.work();
 
         String json = "{'name':'hfy'}";
