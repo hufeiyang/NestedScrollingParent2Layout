@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Demo01</string>
+    <string name="drawer_open">抽屉打开</string>
+    <string name="close">抽屉关闭</string>
 </resources>

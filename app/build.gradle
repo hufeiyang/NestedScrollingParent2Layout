@@ -1,15 +1,27 @@
 apply plugin: 'com.android.application'
 
 android {
+
+    //compileSdkVersion 告诉 Gradle 用哪个 Android SDK 版本编译你的应用。使用任何新添加的 API 就需要使用对应 Level 的 Android SDK。
+    //推荐总是使用最新的 SDK 进行编译
     compileSdkVersion 28
+
     defaultConfig {
         applicationId "com.hfy.demo01"
+        //minSdkVersion 则是应用可以运行的最低要求。minSdkVersion 是 Google Play 商店用来判断用户设备是否可以安装某个应用的标志之一。
         minSdkVersion 15
+        //targetSdkVersion是Android提供向前兼容的主要依据，表明该application已经兼容从minSdkVersion至tartgetSdkVersion之间所有api的变化。在targetSdkVersion更新之前系统不会应用最新的行为变化
+        //比如，targetSDKVersion < 23 & API(手机系统) >= 6.0 ：安装时默认获得权限，但是用户可以在安装App完成后动态取消授权（ 取消时手机会弹出提醒，告诉用户这个是为旧版手机打造的应用，让用户谨慎操作 ）。
         targetSdkVersion 28
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
+
+    //理想上，在稳定状态下三者的关系应该更像这样：minSdkVersion (lowest possible) <= targetSdkVersion == compileSdkVersion (latest SDK)
+    //用较低的 minSdkVersion 来覆盖最大的人群，用最新的 SDK 设置 target 和 compile 来获得最好的外观和行为。
+
+
     buildTypes {
         release {
             minifyEnabled false
@@ -30,6 +42,8 @@ android {
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
     implementation 'com.android.support:appcompat-v7:28.0.0'
+    implementation 'com.android.support:palette-v7:28.0.0'
+
     implementation 'com.android.support.constraint:constraint-layout:1.1.3'
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
@@ -51,4 +65,5 @@ dependencies {
     implementation 'com.squareup.retrofit2:retrofit:2.5.0'
     implementation 'com.squareup.retrofit2:converter-gson:2.5.0'
     implementation 'com.squareup.retrofit2:adapter-rxjava2:2.5.0'
+
 }

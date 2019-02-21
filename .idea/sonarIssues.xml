@@ -3,7 +3,207 @@
   <component name="issues">
     <option name="index">
       <map>
+        <entry key="/Dummy.txt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="/fragment.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/app/build.gradle">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/java/com/hfy/demo01/Main2Activity.java">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/app/src/main/java/com/hfy/demo01/MainActivity.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/java/com/hfy/demo01/module/home/MaterialDesignWidgetActivity.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/java/com/hfy/demo01/module/home/NotificationActivity.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/java/com/hfy/demo01/module/home/fragment/CoordinatorLayoutActivity.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/java/com/hfy/demo01/module/home/fragment/FirstFragment.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/java/com/hfy/demo01/module/home/fragment/SecondFragment.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/java/com/hfy/demo01/module/mvvm/RecyclerActivity.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/res/layout/activity_coordinator_layout.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/res/layout/activity_material_design_widget.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/res/layout/activity_notification.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/res/layout/fold_notification.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/res/layout/fragment_first.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/res/layout/fragment_second.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/res/layout/main.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/res/layout/mytoolbar.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/res/layout/navigetion_header.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/res/menu/main.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/res/menu/navigation_menu.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/res/values/main.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/res/values/strings.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/res/values/styles.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/build.gradle">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../installment-android/app/build.gradle">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../installment-android/app/src/main/AndroidManifest.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../installment-android/app/src/main/java/io/silvrr/installment/common/http/wrap/MyNetCallback.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../installment-android/app/src/main/java/io/silvrr/installment/common/networks/BaseResponseHandler.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../installment-android/app/src/main/java/io/silvrr/installment/common/networks/HttpReqUrl.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../installment-android/app/src/main/java/io/silvrr/installment/common/router/interceptor/SpecificInterceptor.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../installment-android/app/src/main/java/io/silvrr/installment/common/utils/MessageUtils.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../installment-android/app/src/main/java/io/silvrr/installment/common/view/BounceScrollView.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../installment-android/app/src/main/java/io/silvrr/installment/common/view/ValidateButton.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../installment-android/app/src/main/java/io/silvrr/installment/common/view/ValidationPlaceSelectorView.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../installment-android/app/src/main/java/io/silvrr/installment/common/view/dialog/PictureVerificationCodeDialog.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../installment-android/app/src/main/java/io/silvrr/installment/common/view/dialog/SmsValiCodeDialog.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../installment-android/app/src/main/java/io/silvrr/installment/common/view/dialog/ValiCodePresenter.java">
           <value>
             <set />
           </value>
@@ -18,7 +218,367 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/../installment-android/app/src/main/java/io/silvrr/installment/entity/Coupon.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../installment-android/app/src/main/java/io/silvrr/installment/entity/PaymentCounpon.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../installment-android/app/src/main/java/io/silvrr/installment/googleanalysis/helper/ValidateActionHelper.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../installment-android/app/src/main/java/io/silvrr/installment/image/ImageUtils.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../installment-android/app/src/main/java/io/silvrr/installment/location/selector/AddressSelectorPopupWindow.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../installment-android/app/src/main/java/io/silvrr/installment/model/PhoneModel.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../installment-android/app/src/main/java/io/silvrr/installment/model/PwdManagerModel.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../installment-android/app/src/main/java/io/silvrr/installment/model/RegisterModel.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../installment-android/app/src/main/java/io/silvrr/installment/model/VerifyModel.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../installment-android/app/src/main/java/io/silvrr/installment/module/address/DeliverAddActivity.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../installment-android/app/src/main/java/io/silvrr/installment/module/address/DeliverAddDetailActivity.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../installment-android/app/src/main/java/io/silvrr/installment/module/address/DeliverAddEditorActivity.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../installment-android/app/src/main/java/io/silvrr/installment/module/address/presenter/AbstractDeliverEditPresenter.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../installment-android/app/src/main/java/io/silvrr/installment/module/address/presenter/DeliverEditPresenter.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../installment-android/app/src/main/java/io/silvrr/installment/module/address/presenter/SupplementaryAddressEditPresenter.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../installment-android/app/src/main/java/io/silvrr/installment/module/address/view/IDeliverEditView.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../installment-android/app/src/main/java/io/silvrr/installment/module/bill/BillRepayDetailsActivity.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../installment-android/app/src/main/java/io/silvrr/installment/module/bill/FastRepayActivity.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../installment-android/app/src/main/java/io/silvrr/installment/module/cashload/activity/LoanBillRepayDetailsActivity.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../installment-android/app/src/main/java/io/silvrr/installment/module/cashload/fragment/SMSVerificationFragment.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../installment-android/app/src/main/java/io/silvrr/installment/module/cashload/interfaces/SMSVerificationService.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../installment-android/app/src/main/java/io/silvrr/installment/module/cashload/presenter/CashLoanVoiceCodePresenter.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../installment-android/app/src/main/java/io/silvrr/installment/module/coupon/CouponsFragment.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../installment-android/app/src/main/java/io/silvrr/installment/module/creditscore/bean/MaterailInfo.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../installment-android/app/src/main/java/io/silvrr/installment/module/creditscore/view/CreditLimitDetailAcitvity.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../installment-android/app/src/main/java/io/silvrr/installment/module/creditscore/view/SupplementaryAddressActivity.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../installment-android/app/src/main/java/io/silvrr/installment/module/creditscore/view/newcredit/CreditMaterailPresenter.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../installment-android/app/src/main/java/io/silvrr/installment/module/feedback/FeedbackActivity.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../installment-android/app/src/main/java/io/silvrr/installment/module/home/category/CategoryListAdapter.java">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/../installment-android/app/src/main/java/io/silvrr/installment/module/home/homepage/fragment/HomePageFragment.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../installment-android/app/src/main/java/io/silvrr/installment/module/home/main/acitivty/HomeActivity.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../installment-android/app/src/main/java/io/silvrr/installment/module/homepage/fragment/FlashSaleFragment.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../installment-android/app/src/main/java/io/silvrr/installment/module/item/model/CouponModel.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../installment-android/app/src/main/java/io/silvrr/installment/module/item/view/CategoryItemDetailFragment.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../installment-android/app/src/main/java/io/silvrr/installment/module/login/LoginActivity.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../installment-android/app/src/main/java/io/silvrr/installment/module/order/thirdparty/CreateOrderThirdFragment.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../installment-android/app/src/main/java/io/silvrr/installment/module/password/ForgetPasswordVoiceVerifyCodePresenter.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../installment-android/app/src/main/java/io/silvrr/installment/module/password/ResetPasswordFragment.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../installment-android/app/src/main/java/io/silvrr/installment/module/pay/qr/inputmoney/ScanCouponAdapter.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../installment-android/app/src/main/java/io/silvrr/installment/module/pay/qr/inputmoney/ScanCouponDialogActivity.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../installment-android/app/src/main/java/io/silvrr/installment/module/profile/ProfileEditActivity.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../installment-android/app/src/main/java/io/silvrr/installment/module/purchase/presenter/PaymentConfirmPresenter.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../installment-android/app/src/main/java/io/silvrr/installment/module/purchase/view/AddressChooseFragment.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../installment-android/app/src/main/java/io/silvrr/installment/module/purchase/view/BillCouponAdapter.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../installment-android/app/src/main/java/io/silvrr/installment/module/purchase/view/PaymentConfirmFragment.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../installment-android/app/src/main/java/io/silvrr/installment/module/purchase/view/PaymentCouponActivity.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../installment-android/app/src/main/java/io/silvrr/installment/module/purchase/view/PaymentCouponFragment.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../installment-android/app/src/main/java/io/silvrr/installment/module/purchase/view/ShopVerifySmsForResetPhoneFragment.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../installment-android/app/src/main/java/io/silvrr/installment/module/raisecredit/RaiseNewController.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../installment-android/app/src/main/java/io/silvrr/installment/module/recharge/store/view/CashVoucherFragment.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../installment-android/app/src/main/java/io/silvrr/installment/module/register/RegisterFragmentStep1.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../installment-android/app/src/main/java/io/silvrr/installment/module/register/RegisterVoiceVerifyCodePresent.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../installment-android/app/src/main/java/io/silvrr/installment/module/settings/ChangeNewPhoneFragment.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../installment-android/app/src/main/java/io/silvrr/installment/module/settings/NewPhoneVoiceVerifyCodePresent.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../installment-android/app/src/main/java/io/silvrr/installment/module/settings/fragment/VerifyOldPhoneFragment.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../installment-android/app/src/main/java/io/silvrr/installment/module/settings/presenter/VerifyOldPhonePresenter.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../installment-android/app/src/main/java/io/silvrr/installment/module/validation/EnterAddressActivity.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../installment-android/app/src/main/java/io/silvrr/installment/module/validation/presenter/ValRecordPresenterImpl.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../installment-android/app/src/main/java/io/silvrr/installment/module/validation/utils/ValidationUtils.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../installment-android/app/src/main/java/io/silvrr/installment/module/validation/view/ValidationActivity.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../installment-android/app/src/main/res/layout/activity_bill_confirm_dialog_layout.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../installment-android/app/src/main/res/layout/activity_deliver_add_editor.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../installment-android/app/src/main/res/layout/activity_deliver_add_editor_new.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../installment-android/app/src/main/res/layout/activity_pay_to_store.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../installment-android/app/src/main/res/layout/activity_scan_coupon_dialog_layout.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../installment-android/app/src/main/res/layout/credit_score_display_block_layout.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../installment-android/app/src/main/res/layout/dialog_login_validate.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../installment-android/app/src/main/res/layout/view_layout_coupons.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../installment-android/app/src/main/res/values-in/strings.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../installment-android/app/src/main/res/values-ms/strings.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../installment-android/app/src/main/res/values-vi/strings.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../installment-android/app/src/main/res/values/strings.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../installment-android/build.gradle">
           <value>
             <set />
           </value>

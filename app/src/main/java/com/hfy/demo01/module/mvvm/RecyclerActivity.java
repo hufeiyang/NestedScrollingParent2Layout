@@ -22,6 +22,9 @@ import com.hfy.demo01.module.mvvm.bean.Man;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * test DataBinding
+ */
 public class RecyclerActivity extends AppCompatActivity {
 
     private ActivityRecyclerBinding binding;

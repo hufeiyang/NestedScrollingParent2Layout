@@ -1,14 +1,26 @@
 package com.hfy.demo01.module.home.fragment;
 
+import android.Manifest;
+import android.content.DialogInterface;
+import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.net.Uri;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.Fragment;
+import android.support.v4.content.ContextCompat;
+import android.support.v7.app.AlertDialog;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.Toast;
 
 import com.hfy.demo01.R;
+import com.hfy.demo01.module.home.MaterialDesignWidgetActivity;
+import com.hfy.demo01.module.home.NotificationActivity;
 import com.hfy.demo01.module.mvp.view.MvpActivity;
 
 import butterknife.BindView;
@@ -19,8 +31,14 @@ import butterknife.Unbinder;
 
 public class FirstFragment extends Fragment {
 
+    private static final int PERMISSIOINS_REQUEST_CODE_CALL = 1000;
     @BindView(R.id.button)
     Button mButton;
+
+    @BindView(R.id.btn_go_to_notification_activity)
+    Button mBtnGoToNotificationPage;
+
+
     private Unbinder mUnbind;
 
     @Nullable
@@ -35,15 +53,103 @@ public class FirstFragment extends Fragment {
         return view;
     }
 
-    @OnClick(R.id.button)
+    @OnClick({R.id.button,
+            R.id.btn_go_to_notification_activity,
+            R.id.btn_go_to_call_activity,
+            R.id.btn_go_to_material_design_activity,
+            R.id.btn_go_to_coordinator_layout_activity})
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.button:
                 MvpActivity.launch(getActivity());
+                break;
+            case R.id.btn_go_to_notification_activity:
+                NotificationActivity.launch(getActivity());
+                break;
+            case R.id.btn_go_to_call_activity:
+                call();
+                break;
+            case R.id.btn_go_to_material_design_activity:
+                MaterialDesignWidgetActivity.launch(getActivity());
+                break;
+            case R.id.btn_go_to_coordinator_layout_activity:
+                CoordinatorLayoutActivity.launch(getActivity());
                 break;
             default:
                 break;
         }
     }
 
+    private void call() {
+
+        //检查权限
+        if (ContextCompat.checkSelfPermission(getContext(), Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) {
+            //没有就去申请
+            if (ActivityCompat.shouldShowRequestPermissionRationale(getActivity(), Manifest.permission.CALL_PHONE)) {
+                // 用户拒绝过这个权限了，应该提示用户，为什么需要这个权限。
+                AlertDialog dialog = new AlertDialog.Builder(getContext())
+                        .setMessage("解释一下，因为你要打电话，所以需要打电话权限。")
+                        .setPositiveButton("确定", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                dialog.dismiss();
+                                //继续请求权限
+                                requestPermissions(new String[]{Manifest.permission.CALL_PHONE}, PERMISSIOINS_REQUEST_CODE_CALL);
+                            }
+                        }).create();
+                dialog.show();
+            } else {
+                //请求权限，fragment中运行时权限的特殊处理、在Fragment中申请权限、不要使用ActivityCompat.requestPermissions、直接使用Fragment的requestPermissions方法、否则会回调到Activity的 onRequestPermissionsResult
+                requestPermissions(new String[]{Manifest.permission.CALL_PHONE}, PERMISSIOINS_REQUEST_CODE_CALL);
+            }
+        } else {
+            callPhone();
+        }
+
+    }
+
+    /**
+     * 申请权限的回调
+     *
+     * @param requestCode
+     * @param permissions
+     * @param grantResults
+     */
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        if (requestCode == PERMISSIOINS_REQUEST_CODE_CALL) {
+            if (grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                callPhone();
+            }
+            //拒绝后，再次弹框提示申请权限 ，若勾选“不再询问”后点击拒绝，会走此逻辑（此时shouldShowRequestPermissionRationale返回false）。
+            //因为已经拒绝且不在提示，需要告诉用户如何打开权限。
+            else if (!ActivityCompat.shouldShowRequestPermissionRationale(getActivity(), Manifest.permission.CALL_PHONE)) {
+                AlertDialog dialog = new AlertDialog.Builder(getContext())
+                        .setMessage("该功能需要访问电话的权限，当前未打开权限！ 打开权限的方法：设置-应用—权限。")
+                        .setPositiveButton("确定", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                dialog.dismiss();
+                            }
+                        }).create();
+                dialog.show();
+            } else {
+                Toast.makeText(getContext(), "被拒绝了", Toast.LENGTH_SHORT).show();
+            }
+        }
+    }
+
+    /**
+     * 打电话.
+     * <p>
+     * 注意：
+     * android.intent.action.CALL需要在配置文件中添加拨号权限 且 点击后直接拨号
+     * android.intent.action.DIAL只是调用拨号键盘，不用在文件中添加权限
+     */
+    private void callPhone() {
+        Intent intent = new Intent();
+        intent.setAction(Intent.ACTION_CALL);
+        intent.setData(Uri.parse("tel:" + "10086"));
+        startActivity(intent);
+    }
 }

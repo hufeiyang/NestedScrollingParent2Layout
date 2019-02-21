@@ -1,11 +1,62 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
-    <Button
-        android:id="@+id/button"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Button" />
-</LinearLayout>
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <Button
+            android:id="@+id/button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="MVP使用" />
+
+        <Button
+            android:id="@+id/btn_go_to_notification_activity"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="进入通知页" />
+
+        <Button
+            android:id="@+id/btn_go_to_call_activity"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="test运行时权限" />
+
+        <Button
+            android:id="@+id/btn_go_to_material_design_activity"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="MaterialDesign控件" />
+
+        <Button
+            android:id="@+id/btn_go_to_coordinator_layout_activity"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="go_to_test1" />
+
+        <!--
+        cardCornerRadius圆角半径；
+        cardElevation阴影半径
+        contentPadding内容的padding
+        -->
+        <android.support.v7.widget.CardView
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            app:cardBackgroundColor="@color/colorPrimary"
+            app:cardCornerRadius="15dp"
+            android:layout_marginTop="50dp">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:src="@mipmap/dog" />
+        </android.support.v7.widget.CardView>
+    </LinearLayout>
+
+</ScrollView>

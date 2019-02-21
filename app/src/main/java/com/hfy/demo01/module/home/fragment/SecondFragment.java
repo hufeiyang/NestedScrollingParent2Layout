@@ -9,7 +9,6 @@ import android.view.ViewGroup;
 import android.widget.Button;
 
 import com.hfy.demo01.R;
-import com.hfy.demo01.module.mvvm.MvvmActivity;
 import com.hfy.demo01.module.mvvm.RecyclerActivity;
 
 import butterknife.BindView;
@@ -29,7 +28,7 @@ public class SecondFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
 
-        View view = LayoutInflater.from(getContext()).inflate(R.layout.fragment_first, null);
+        View view = LayoutInflater.from(getContext()).inflate(R.layout.fragment_second, null);
 
         mUnbind = ButterKnife.bind(this, view);
 
