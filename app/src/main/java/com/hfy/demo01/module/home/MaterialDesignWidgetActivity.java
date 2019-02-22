@@ -49,13 +49,16 @@ public class MaterialDesignWidgetActivity extends AppCompatActivity {
 
     }
 
-    @OnClick({R.id.btn_snack_bar})
+    @OnClick({R.id.btn_snack_bar,
+            R.id.btn_test_behavior})
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.btn_snack_bar:
                 showSnackBar();
                 break;
-
+            case R.id.btn_test_behavior:
+                BehaviorTestActivity.launch(this);
+                break;
             default:
                 break;
         }

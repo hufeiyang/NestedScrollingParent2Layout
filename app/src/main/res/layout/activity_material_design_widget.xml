@@ -22,7 +22,8 @@
     <android.support.v4.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        android:background="@color/colorAccent">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -36,10 +37,13 @@
                 android:text="show snack bar" />
 
             <Button
-                android:id="@+id/btn_test1"
+                android:id="@+id/btn_test_behavior"
                 android:layout_width="match_parent"
-                android:layout_height="800dp"
-                android:text="test1" />
+                android:layout_height="wrap_content"
+                android:text="btn_test_behavior" />
+
+
+
         </LinearLayout>
 
     </android.support.v4.widget.NestedScrollView>

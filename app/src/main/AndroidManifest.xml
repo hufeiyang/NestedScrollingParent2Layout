@@ -24,7 +24,8 @@
         <activity android:name=".module.mvvm.RecyclerActivity" />
         <activity android:name=".module.home.NotificationActivity" />
         <activity android:name=".module.home.MaterialDesignWidgetActivity" />
-        <activity android:name=".module.home.fragment.CoordinatorLayoutActivity"></activity>
+        <activity android:name=".module.home.fragment.CoordinatorLayoutActivity" />
+        <activity android:name=".module.home.BehaviorTestActivity"></activity>
     </application>
 
 </manifest>
