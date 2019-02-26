@@ -7,9 +7,7 @@
     app:title="标题"
     app:subtitle="子标题"
     app:logo="@mipmap/ic_launcher"
-    app:layout_scrollFlags="scroll|enterAlways"
     app:navigationIcon="@mipmap/icon_item_detail_back"
-    android:background="?attr/colorPrimary"
     android:minHeight="?attr/actionBarSize">
 
 </android.support.v7.widget.Toolbar>

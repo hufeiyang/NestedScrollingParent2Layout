@@ -253,7 +253,17 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/../installment-android/app/src/main/java/io/silvrr/installment/entity/CashVerifyBean.java">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/../installment-android/app/src/main/java/io/silvrr/installment/entity/Coupon.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../installment-android/app/src/main/java/io/silvrr/installment/entity/ImageCaptchaInfoFromRisk.java">
           <value>
             <set />
           </value>
@@ -358,6 +368,11 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/../installment-android/app/src/main/java/io/silvrr/installment/module/cashload/model/VoiceVerificationModel.java">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/../installment-android/app/src/main/java/io/silvrr/installment/module/cashload/presenter/CashLoanVoiceCodePresenter.java">
           <value>
             <set />
@@ -454,6 +469,11 @@
           </value>
         </entry>
         <entry key="$PROJECT_DIR$/../installment-android/app/src/main/java/io/silvrr/installment/module/profile/ProfileEditActivity.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../installment-android/app/src/main/java/io/silvrr/installment/module/purchase/model/RiskCheckModel.java">
           <value>
             <set />
           </value>

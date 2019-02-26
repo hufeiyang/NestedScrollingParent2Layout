@@ -9,21 +9,37 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <!--引入Toolbar-->
-        <include layout="@layout/mytoolbar" />
-
-        <Button
+        <android.support.design.widget.CollapsingToolbarLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="假装我是一个tab"/>
+            app:layout_scrollFlags="scroll|exitUntilCollapsed"
+            app:title="this is title!"
+            app:titleEnabled="true">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="300dp"
+                android:scaleType="centerCrop"
+                android:src="@mipmap/blue"
+                app:layout_collapseMode="parallax" />
+
+            <!--引入Toolbar-->
+            <android.support.v7.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?android:attr/actionBarSize"
+                app:logo="@mipmap/ic_launcher"
+                app:navigationIcon="@mipmap/icon_item_detail_back"
+                app:layout_collapseMode="pin" />
+        </android.support.design.widget.CollapsingToolbarLayout>
 
     </android.support.design.widget.AppBarLayout>
 
     <android.support.v4.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        app:layout_behavior="@string/appbar_scrolling_view_behavior"
-        android:background="@color/colorAccent">
+        android:background="@color/colorAccent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -41,7 +57,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="btn_test_behavior" />
-
 
 
         </LinearLayout>
