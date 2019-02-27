@@ -38,7 +38,8 @@
             android:id="@+id/btn_go_to_coordinator_layout_activity"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="go_to_test1" />
+            android:text="go_to_coordinator_layout_activity"
+            android:textAllCaps="false"/>
 
         <!--
         cardCornerRadius圆角半径；

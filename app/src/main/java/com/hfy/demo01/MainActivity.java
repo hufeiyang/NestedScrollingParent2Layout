@@ -143,6 +143,8 @@ public class MainActivity extends AppCompatActivity {
         mTlHomeTab.setupWithViewPager(mVpHomePage);
 
         initToolbar();
+
+        initDrawerLayout();
     }
 
     private void initToolbar() {
@@ -180,23 +182,6 @@ public class MainActivity extends AppCompatActivity {
         });
 
 
-        //用DrawerLayout实现侧滑
-        mActionBarDrawerToggle = new ActionBarDrawerToggle(this, mDrawerLayout, mToolbar, R.string.drawer_open, R.string.close);
-        mActionBarDrawerToggle.syncState();
-
-        mDrawerLayout.addDrawerListener(mActionBarDrawerToggle);
-
-        //侧滑页面的导航菜单 选中监听
-        mNavigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
-            @Override
-            public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
-                int itemId = menuItem.getItemId();
-                CharSequence title = menuItem.getTitle();
-                Toast.makeText(MainActivity.this, title, Toast.LENGTH_SHORT).show();
-                return true;
-            }
-        });
-
 //        View close = findViewById(R.id.tv_close);
 //        close.setOnClickListener(new View.OnClickListener() {
 //            @Override
@@ -215,6 +200,25 @@ public class MainActivity extends AppCompatActivity {
 //            }
 //        });
 
+    }
+
+    private void initDrawerLayout() {
+        //用DrawerLayout实现侧滑
+        mActionBarDrawerToggle = new ActionBarDrawerToggle(this, mDrawerLayout, mToolbar, R.string.drawer_open, R.string.close);
+        mActionBarDrawerToggle.syncState();
+
+        mDrawerLayout.addDrawerListener(mActionBarDrawerToggle);
+
+        //侧滑页面的导航菜单 选中监听
+        mNavigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
+                int itemId = menuItem.getItemId();
+                CharSequence title = menuItem.getTitle();
+                Toast.makeText(MainActivity.this, title, Toast.LENGTH_SHORT).show();
+                return true;
+            }
+        });
     }
 
 

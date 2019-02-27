@@ -1,4 +1,4 @@
-package com.hfy.demo01.module.home.fragment;
+package com.hfy.demo01.module.home.designsupportlibrarytest;
 
 import android.content.Intent;
 import android.os.Bundle;

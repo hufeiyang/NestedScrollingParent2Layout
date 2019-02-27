@@ -1,10 +1,10 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?><!--使用CoordinatorLayout-->
 <android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".module.home.BehaviorTestActivity">
+    tools:context=".module.home.designsupportlibrarytest.BehaviorTestActivity">
 
     <!--随手指滑动的view-->
     <com.hfy.demo01.common.customview.MovingView
@@ -13,14 +13,14 @@
         android:layout_height="100dp"
         android:background="@color/colorPrimary" />
 
-    <!--layout_behavior-->
+    <!--给Button设置定义好的layout_behavior-->
+    <!--CoordinatorLayout的使用核心是Behavior，Behavior就是执行你定制的动作。-->
     <Button
         android:id="@+id/btn_test_behavior"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="test_behavior"
         android:textAllCaps="false"
-        app:layout_behavior="com.hfy.demo01.module.home.TestBehavior"/>
-
+        app:layout_behavior="com.hfy.demo01.module.home.TestBehavior" />
 
 </android.support.design.widget.CoordinatorLayout>

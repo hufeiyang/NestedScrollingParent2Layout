@@ -1,4 +1,4 @@
-package com.hfy.demo01.module.home;
+package com.hfy.demo01.module.home.designsupportlibrarytest;
 
 import android.app.Activity;
 import android.app.Notification;
@@ -30,13 +30,13 @@ import butterknife.OnClick;
 public class NotificationActivity extends AppCompatActivity {
 
     @BindView(R.id.btn_ordinary)
-    Button mBtnOrdinary;
+    public Button mBtnOrdinary;
 
     @BindView(R.id.btn_fold)
-    Button mBtnFold;
+    public Button mBtnFold;
 
     @BindView(R.id.btn_hang)
-    Button mBtnHang;
+    public Button mBtnHang;
 
     public static void launch(Context context) {
         Intent intent = new Intent(context, NotificationActivity.class);

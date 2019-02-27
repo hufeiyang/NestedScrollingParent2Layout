@@ -4,11 +4,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <!--用AppBarLayout把toolbar、TabLayout组合为一个整体，设置elevation有立体效果-->
+    <!--用AppBarLayout 可让你定制当某个可滚动View的滚动手势发生变化时，其内部的子View实现何种动作-->
     <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
+        <!--AppBarLayout的直接子view，使用layout_scrollFlags设置滚动方式-->
+        <!--CollapsingToolbarLayout是用来对Toolbar进行再次包装的ViewGroup，主要是用于实现折叠（其实就是看起来像伸缩~）的App Bar效果。它需要放在AppBarLayout布局里面，并且作为AppBarLayout的直接子View。 -->
         <android.support.design.widget.CollapsingToolbarLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -16,6 +18,7 @@
             app:title="this is title!"
             app:titleEnabled="true">
 
+            <!--视差滚动子View(Parallax scrolling children):子View可以选择在当前的布局当时是否以“视差”的方式来跟随滚动。（PS:其实就是让这个View的滚动的速度比其他正常滚动的View速度稍微慢一点）。将布局参数app:layout_collapseMode设为parallax-->
             <ImageView
                 android:layout_width="match_parent"
                 android:layout_height="300dp"
@@ -24,17 +27,20 @@
                 app:layout_collapseMode="parallax" />
 
             <!--引入Toolbar-->
+            <!--将子View位置固定(Pinned position children)：子View可以选择是否在全局空间上固定位置，这对于Toolbar来说非常有用，因为当布局在移动时，可以将Toolbar固定位置而不受移动的影响。 将app:layout_collapseMode设为pin-->
             <android.support.v7.widget.Toolbar
                 android:id="@+id/toolbar"
                 android:layout_width="match_parent"
                 android:layout_height="?android:attr/actionBarSize"
                 app:logo="@mipmap/ic_launcher"
                 app:navigationIcon="@mipmap/icon_item_detail_back"
-                app:layout_collapseMode="pin" />
+                app:layout_collapseMode="pin"/>
         </android.support.design.widget.CollapsingToolbarLayout>
 
     </android.support.design.widget.AppBarLayout>
 
+    <!--NestedScrollView就是可滚动的view-->
+    <!--AppBarLayout与NestedScrollView关联：layout_behavior="@string/appbar_scrolling_view_behavior"-->
     <android.support.v4.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -63,7 +69,7 @@
 
     </android.support.v4.widget.NestedScrollView>
 
-
+    <!--FloatingActionButton-->
     <android.support.design.widget.FloatingActionButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

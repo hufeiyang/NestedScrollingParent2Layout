@@ -1,4 +1,4 @@
-package com.hfy.demo01.module.home;
+package com.hfy.demo01.module.home.designsupportlibrarytest;
 
 import android.app.Activity;
 import android.content.Context;
@@ -23,7 +23,7 @@ import butterknife.OnClick;
 public class BehaviorTestActivity extends AppCompatActivity {
 
     @BindView(R.id.mv_test)
-    MovingView mMvTest;
+    public MovingView mMvTest;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

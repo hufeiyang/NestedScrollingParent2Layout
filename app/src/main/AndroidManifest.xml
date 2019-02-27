@@ -22,10 +22,10 @@
         <activity android:name=".module.mvp.view.MvpActivity" />
         <activity android:name=".module.mvvm.MvvmActivity" />
         <activity android:name=".module.mvvm.RecyclerActivity" />
-        <activity android:name=".module.home.NotificationActivity" />
-        <activity android:name=".module.home.MaterialDesignWidgetActivity" />
-        <activity android:name=".module.home.fragment.CoordinatorLayoutActivity" />
-        <activity android:name=".module.home.BehaviorTestActivity"></activity>
+        <activity android:name=".module.home.designsupportlibrarytest.NotificationActivity" />
+        <activity android:name=".module.home.designsupportlibrarytest.MaterialDesignWidgetActivity" />
+        <activity android:name=".module.home.designsupportlibrarytest.CoordinatorLayoutActivity" />
+        <activity android:name=".module.home.designsupportlibrarytest.BehaviorTestActivity"/>
     </application>
 
 </manifest>

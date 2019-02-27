@@ -19,8 +19,9 @@ import android.widget.Button;
 import android.widget.Toast;
 
 import com.hfy.demo01.R;
-import com.hfy.demo01.module.home.MaterialDesignWidgetActivity;
-import com.hfy.demo01.module.home.NotificationActivity;
+import com.hfy.demo01.module.home.designsupportlibrarytest.NotificationActivity;
+import com.hfy.demo01.module.home.designsupportlibrarytest.CoordinatorLayoutActivity;
+import com.hfy.demo01.module.home.designsupportlibrarytest.MaterialDesignWidgetActivity;
 import com.hfy.demo01.module.mvp.view.MvpActivity;
 
 import butterknife.BindView;

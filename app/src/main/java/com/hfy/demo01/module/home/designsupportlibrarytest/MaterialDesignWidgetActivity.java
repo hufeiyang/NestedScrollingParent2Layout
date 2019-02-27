@@ -1,14 +1,12 @@
-package com.hfy.demo01.module.home;
+package com.hfy.demo01.module.home.designsupportlibrarytest;
 
 import android.content.Intent;
+import android.os.Bundle;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.FragmentActivity;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
 import android.widget.Toast;
 
 import com.hfy.demo01.R;
@@ -25,10 +23,7 @@ import butterknife.OnClick;
 public class MaterialDesignWidgetActivity extends AppCompatActivity {
 
     @BindView(R.id.btn_snack_bar)
-    Button mBtnShowSnackBar;
-
-//    @BindView(R.id.ll_container)
-//    LinearLayout mLlContainer;
+    public Button mBtnShowSnackBar;
 
     public static void launch(FragmentActivity activity) {
         Intent intent = new Intent(activity, MaterialDesignWidgetActivity.class);
@@ -65,6 +60,7 @@ public class MaterialDesignWidgetActivity extends AppCompatActivity {
     }
 
     private void showSnackBar() {
+        //第一个参数是为了找到Snackbar的父控件，给个view就行
         Snackbar.make(mBtnShowSnackBar, "Snackbar标题", Snackbar.LENGTH_LONG)
                 .setAction("点击事件", new View.OnClickListener() {
                     @Override

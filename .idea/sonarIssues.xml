@@ -18,6 +18,11 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/app/build/generated/source/apt/debug/com/hfy/demo01/module/home/designsupportlibrarytest/MaterialDesignWidgetActivity_ViewBinding.java">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
           <value>
             <set />
@@ -54,6 +59,21 @@
           </value>
         </entry>
         <entry key="$PROJECT_DIR$/app/src/main/java/com/hfy/demo01/module/home/TestBehavior.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/java/com/hfy/demo01/module/home/designsupportlibrarytest/CoordinatorLayoutActivity.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/java/com/hfy/demo01/module/home/designsupportlibrarytest/MaterialDesignWidgetActivity.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/java/com/hfy/demo01/module/home/designsupportlibrarytest/TestBehavior.java">
           <value>
             <set />
           </value>
@@ -539,6 +559,11 @@
           </value>
         </entry>
         <entry key="$PROJECT_DIR$/../installment-android/app/src/main/java/io/silvrr/installment/module/settings/NewPhoneVoiceVerifyCodePresent.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../installment-android/app/src/main/java/io/silvrr/installment/module/settings/ResetPhoneUserInfoFragment.java">
           <value>
             <set />
           </value>

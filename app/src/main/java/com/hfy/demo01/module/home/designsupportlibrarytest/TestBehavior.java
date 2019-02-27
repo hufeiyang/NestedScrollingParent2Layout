@@ -1,4 +1,4 @@
-package com.hfy.demo01.module.home;
+package com.hfy.demo01.module.home.designsupportlibrarytest;
 
 import android.content.Context;
 import android.support.annotation.NonNull;
@@ -11,7 +11,7 @@ import android.widget.Button;
 import com.hfy.demo01.common.customview.MovingView;
 
 /**
- * 文件描述：自定义CoordinatorLayout.Behavior，为了理解CoordinatorLayout的我作用。
+ * 文件描述：自定义CoordinatorLayout.Behavior，为了理解CoordinatorLayout的作用。
  * 作者：hufy
  * 创建时间：2019/2/22
  * 更改时间：2019/2/22 17:26
@@ -38,8 +38,8 @@ public class TestBehavior extends CoordinatorLayout.Behavior<Button> {
     /**
      * 判断child的布局是否依赖dependency
      * @param parent CoordinatorLayout
-     * @param child 执行动作的CoordinatorLayout的子View
-     * @param dependency Child依赖的View
+     * @param child 执行动作的CoordinatorLayout的子View，即设置这个behavior的view
+     * @param dependency Child依赖的View，需要关心的view
      * @return 返回false表示child不依赖dependency，true表示依赖
      */
     @Override
@@ -57,7 +57,6 @@ public class TestBehavior extends CoordinatorLayout.Behavior<Button> {
      */
     @Override
     public boolean onDependentViewChanged(@NonNull CoordinatorLayout parent, @NonNull Button child, @NonNull View dependency) {
-
 
         int left = dependency.getLeft();
         int top = dependency.getTop();
