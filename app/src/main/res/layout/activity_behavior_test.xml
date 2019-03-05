@@ -21,6 +21,6 @@
         android:layout_height="wrap_content"
         android:text="test_behavior"
         android:textAllCaps="false"
-        app:layout_behavior="com.hfy.demo01.module.home.TestBehavior" />
+        app:layout_behavior="com.hfy.demo01.module.home.designsupportlibrarytest.TestBehavior" />
 
 </android.support.design.widget.CoordinatorLayout>

@@ -24,7 +24,7 @@
         <activity android:name=".module.mvvm.RecyclerActivity" />
         <activity android:name=".module.home.designsupportlibrarytest.NotificationActivity" />
         <activity android:name=".module.home.designsupportlibrarytest.MaterialDesignWidgetActivity" />
-        <activity android:name=".module.home.designsupportlibrarytest.CoordinatorLayoutActivity" />
+        <activity android:name=".module.home.designsupportlibrarytest.ViewEventTestActivity" />
         <activity android:name=".module.home.designsupportlibrarytest.BehaviorTestActivity"/>
     </application>
 

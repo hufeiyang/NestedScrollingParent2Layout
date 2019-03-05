@@ -35,10 +35,10 @@
             android:text="MaterialDesign控件" />
 
         <Button
-            android:id="@+id/btn_go_to_coordinator_layout_activity"
+            android:id="@+id/btn_go_to_view_test_activity"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="go_to_coordinator_layout_activity"
+            android:text="go：view事件体系test"
             android:textAllCaps="false"/>
 
         <!--

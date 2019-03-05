@@ -20,7 +20,7 @@ import android.widget.Toast;
 
 import com.hfy.demo01.R;
 import com.hfy.demo01.module.home.designsupportlibrarytest.NotificationActivity;
-import com.hfy.demo01.module.home.designsupportlibrarytest.CoordinatorLayoutActivity;
+import com.hfy.demo01.module.home.designsupportlibrarytest.ViewEventTestActivity;
 import com.hfy.demo01.module.home.designsupportlibrarytest.MaterialDesignWidgetActivity;
 import com.hfy.demo01.module.mvp.view.MvpActivity;
 
@@ -58,7 +58,7 @@ public class FirstFragment extends Fragment {
             R.id.btn_go_to_notification_activity,
             R.id.btn_go_to_call_activity,
             R.id.btn_go_to_material_design_activity,
-            R.id.btn_go_to_coordinator_layout_activity})
+            R.id.btn_go_to_view_test_activity})
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.button:
@@ -73,8 +73,8 @@ public class FirstFragment extends Fragment {
             case R.id.btn_go_to_material_design_activity:
                 MaterialDesignWidgetActivity.launch(getActivity());
                 break;
-            case R.id.btn_go_to_coordinator_layout_activity:
-                CoordinatorLayoutActivity.launch(getActivity());
+            case R.id.btn_go_to_view_test_activity:
+                ViewEventTestActivity.launch(getActivity());
                 break;
             default:
                 break;

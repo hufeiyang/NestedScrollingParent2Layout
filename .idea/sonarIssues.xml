@@ -38,6 +38,11 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/java/com/hfy/demo01/MyApplication.java">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/app/src/main/java/com/hfy/demo01/common/customview/MovingView.java">
           <value>
             <set />
@@ -74,6 +79,11 @@
           </value>
         </entry>
         <entry key="$PROJECT_DIR$/app/src/main/java/com/hfy/demo01/module/home/designsupportlibrarytest/TestBehavior.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/java/com/hfy/demo01/module/home/designsupportlibrarytest/ViewEventTestActivity.java">
           <value>
             <set />
           </value>
@@ -193,7 +203,22 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/settings.gradle">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/../installment-android/app/build.gradle">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../installment-android/app/build/generated/not_namespaced_r_class_sources/debug/processDebugResources/r/com/afollestad/materialdialogs/R.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../installment-android/app/build/generated/source/apt/debug/io/silvrr/installment/module/purchase/view/PaymentCouponFragment_ViewBinding.java">
           <value>
             <set />
           </value>
@@ -228,12 +253,27 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/../installment-android/app/src/main/java/io/silvrr/installment/common/share/ShareManager.java">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/../installment-android/app/src/main/java/io/silvrr/installment/common/utils/MessageUtils.java">
           <value>
             <set />
           </value>
         </entry>
         <entry key="$PROJECT_DIR$/../installment-android/app/src/main/java/io/silvrr/installment/common/view/BounceScrollView.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../installment-android/app/src/main/java/io/silvrr/installment/common/view/ClearEditText.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../installment-android/app/src/main/java/io/silvrr/installment/common/view/RecyclerView/CommonRecyclerView.java">
           <value>
             <set />
           </value>
@@ -293,6 +333,16 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/../installment-android/app/src/main/java/io/silvrr/installment/entity/PaymentCounponTitle.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../installment-android/app/src/main/java/io/silvrr/installment/googleanalysis/ExceptionReporterHelper.java">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/../installment-android/app/src/main/java/io/silvrr/installment/googleanalysis/helper/ValidateActionHelper.java">
           <value>
             <set />
@@ -324,6 +374,16 @@
           </value>
         </entry>
         <entry key="$PROJECT_DIR$/../installment-android/app/src/main/java/io/silvrr/installment/model/VerifyModel.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../installment-android/app/src/main/java/io/silvrr/installment/module/adapter/ChooseCouponAdapter.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../installment-android/app/src/main/java/io/silvrr/installment/module/adapter/CouponAdapter.java">
           <value>
             <set />
           </value>
@@ -443,6 +503,11 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/../installment-android/app/src/main/java/io/silvrr/installment/module/home/main/presenter/HomePageAdvertisementPresenter.java">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/../installment-android/app/src/main/java/io/silvrr/installment/module/homepage/fragment/FlashSaleFragment.java">
           <value>
             <set />
@@ -513,12 +578,22 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/../installment-android/app/src/main/java/io/silvrr/installment/module/purchase/view/BillCouponFragment.java">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/../installment-android/app/src/main/java/io/silvrr/installment/module/purchase/view/PaymentConfirmFragment.java">
           <value>
             <set />
           </value>
         </entry>
         <entry key="$PROJECT_DIR$/../installment-android/app/src/main/java/io/silvrr/installment/module/purchase/view/PaymentCouponActivity.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../installment-android/app/src/main/java/io/silvrr/installment/module/purchase/view/PaymentCouponAdapter.java">
           <value>
             <set />
           </value>
@@ -578,6 +653,11 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/../installment-android/app/src/main/java/io/silvrr/installment/module/startup/SplashActivity.java">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/../installment-android/app/src/main/java/io/silvrr/installment/module/validation/EnterAddressActivity.java">
           <value>
             <set />
@@ -598,6 +678,11 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/../installment-android/app/src/main/java/io/silvrr/installment/service/CoreService.java">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/../installment-android/app/src/main/res/layout/activity_bill_confirm_dialog_layout.xml">
           <value>
             <set />
@@ -614,6 +699,11 @@
           </value>
         </entry>
         <entry key="$PROJECT_DIR$/../installment-android/app/src/main/res/layout/activity_pay_to_store.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../installment-android/app/src/main/res/layout/activity_payment_coupon.xml">
           <value>
             <set />
           </value>
@@ -659,6 +749,21 @@
           </value>
         </entry>
         <entry key="$PROJECT_DIR$/../installment-android/build.gradle">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../installment-android/library_push/src/main/java/io/silvrr/installment/push/PushManager.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$USER_HOME$/AppData/Local/Android/Sdk/sources/android-28/android/app/Activity.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$USER_HOME$/AppData/Local/Android/Sdk/sources/android-28/com/android/internal/policy/PhoneWindow.java">
           <value>
             <set />
           </value>
