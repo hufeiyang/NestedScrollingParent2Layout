@@ -3,12 +3,7 @@
   <component name="issues">
     <option name="index">
       <map>
-        <entry key="$PROJECT_DIR$/.idea/workspace.xml">
-          <value>
-            <set />
-          </value>
-        </entry>
-        <entry key="$PROJECT_DIR$/build.gradle">
+        <entry key="/Dummy.txt">
           <value>
             <set />
           </value>
@@ -18,37 +13,12 @@
             <set />
           </value>
         </entry>
-        <entry key="$PROJECT_DIR$/src/main/java/com/hfy/demo01/common/ImageUtils.java">
-          <value>
-            <set />
-          </value>
-        </entry>
         <entry key="$PROJECT_DIR$/src/main/java/com/hfy/demo01/module/home/fragment/FirstFragment.java">
           <value>
             <set />
           </value>
         </entry>
-        <entry key="$PROJECT_DIR$/../build.gradle">
-          <value>
-            <set />
-          </value>
-        </entry>
-        <entry key="$PROJECT_DIR$/../../installment-android/app/src/main/java/io/silvrr/installment/common/webview/Html5Activity.java">
-          <value>
-            <set />
-          </value>
-        </entry>
-        <entry key="$PROJECT_DIR$/../../installment-android/app/src/main/java/io/silvrr/installment/common/webview/Html5JsObj.java">
-          <value>
-            <set />
-          </value>
-        </entry>
-        <entry key="$PROJECT_DIR$/../../installment-android/app/src/main/java/io/silvrr/installment/module/bill/FastRepayActivity.java">
-          <value>
-            <set />
-          </value>
-        </entry>
-        <entry key="$PROJECT_DIR$/../../installment-android/app/src/main/java/io/silvrr/installment/module/cashload/activity/LargeLoanBillRepayDetailsActivity.java">
+        <entry key="$PROJECT_DIR$/../../installment-android/app/src/main/java/io/silvrr/installment/module/adtips/AdTipProvider.java">
           <value>
             <set />
           </value>
@@ -58,7 +28,37 @@
             <set />
           </value>
         </entry>
-        <entry key="$PROJECT_DIR$/../../installment-android/app/src/main/java/io/silvrr/installment/module/login/LoginManager.java">
+        <entry key="$PROJECT_DIR$/../../installment-android/app/src/main/java/io/silvrr/installment/module/home/homepage/view/ShoppingCartBinder.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../installment-android/app/src/main/java/io/silvrr/installment/module/message/act/ActPresenter.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../installment-android/app/src/main/java/io/silvrr/installment/module/pay/qr/coupon/ScanCouponDialogHolder.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../installment-android/app/src/main/java/io/silvrr/installment/module/pay/qr/orderconfirm/CashPayVendorDialogHolder.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../installment-android/app/src/main/java/io/silvrr/installment/module/pay/qr/orderconfirm/PayVendorDialogHolder.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../installment-android/app/src/main/java/io/silvrr/installment/pushimp/PushBuriedUtil.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../installment-android/library_push/src/main/java/io/silvrr/installment/push/Notify.java">
           <value>
             <set />
           </value>

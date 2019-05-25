@@ -69,13 +69,13 @@
 
         <!--第二种：NavigationView headerLayout是头部布局 menu是菜单列表-->
         <!--layout_gravity="start" ,这个必须要有，作为侧滑界面-->
-        <android.support.design.widget.NavigationView
-            android:id="@+id/nv_navigation"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_gravity="start"
-            app:headerLayout="@layout/navigation_header"
-            app:menu="@menu/navigation_menu" />
+        <!--<android.support.design.widget.NavigationView-->
+            <!--android:id="@+id/nv_navigation"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="match_parent"-->
+            <!--android:layout_gravity="start"-->
+            <!--app:headerLayout="@layout/navigation_header"-->
+            <!--app:menu="@menu/navigation_menu" />-->
 
     </android.support.v4.widget.DrawerLayout>
 

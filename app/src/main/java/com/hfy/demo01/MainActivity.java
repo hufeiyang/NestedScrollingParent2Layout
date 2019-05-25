@@ -1,5 +1,6 @@
 package com.hfy.demo01;
 
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.drawable.ColorDrawable;
@@ -27,10 +28,13 @@ import com.google.gson.Gson;
 import com.hfy.demo01.dagger2.bean.Car;
 import com.hfy.demo01.dagger2.bean.Man;
 import com.hfy.demo01.dagger2.bean.Watch;
+//import com.hfy.demo01.dagger2.component.DaggerMainActivityComponent;
 import com.hfy.demo01.dagger2.component.DaggerMainActivityComponent;
 import com.hfy.demo01.module.home.adapter.HomePagerAdapter;
 import com.hfy.demo01.module.home.fragment.FirstFragment;
 import com.hfy.demo01.module.home.fragment.SecondFragment;
+
+import org.greenrobot.eventbus.EventBus;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -61,8 +65,8 @@ public class MainActivity extends AppCompatActivity {
     @BindView(R.id.drawer_layout)
     DrawerLayout mDrawerLayout;
 
-    @BindView(R.id.nv_navigation)
-    NavigationView mNavigationView;
+//    @BindView(R.id.nv_navigation)
+//    NavigationView mNavigationView;
 
     /****** Dagger2 练习*****/
     @Inject
@@ -95,6 +99,12 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        Intent intent = getIntent();
+        String name = intent.getStringExtra("name");
+        String age = intent.getStringExtra("age");
+        Log.i(TAG, "onCreate: name = " + name);
+        Log.i(TAG, "onCreate: age = " + age);
 
         initConfig();
 
@@ -210,15 +220,15 @@ public class MainActivity extends AppCompatActivity {
         mDrawerLayout.addDrawerListener(mActionBarDrawerToggle);
 
         //侧滑页面的导航菜单 选中监听
-        mNavigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
-            @Override
-            public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
-                int itemId = menuItem.getItemId();
-                CharSequence title = menuItem.getTitle();
-                Toast.makeText(MainActivity.this, title, Toast.LENGTH_SHORT).show();
-                return true;
-            }
-        });
+//        mNavigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
+//            @Override
+//            public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
+//                int itemId = menuItem.getItemId();
+//                CharSequence title = menuItem.getTitle();
+//                Toast.makeText(MainActivity.this, title, Toast.LENGTH_SHORT).show();
+//                return true;
+//            }
+//        });
     }
 
 
@@ -231,4 +241,8 @@ public class MainActivity extends AppCompatActivity {
 //    }
 
 
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+    }
 }

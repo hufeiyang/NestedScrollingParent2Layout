@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="Gradle: com.wuhenzhizao:titlebar-1.1.4">
+    <CLASSES>
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/titlebar-1.1.4.aar/09d97cfc99c1dad2c67651ded06a3d86/res" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/titlebar-1.1.4.aar/09d97cfc99c1dad2c67651ded06a3d86/jars/classes.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.wuhenzhizao/titlebar/1.1.4/d9136a8b8a3d582638b3ddd9272259daaa4c5fd/titlebar-1.1.4-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

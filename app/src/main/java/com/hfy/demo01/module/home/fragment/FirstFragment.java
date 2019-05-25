@@ -4,6 +4,7 @@ import android.Manifest;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.graphics.drawable.PictureDrawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -12,17 +13,27 @@ import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.Fragment;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AlertDialog;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.RequestBuilder;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
+import com.bumptech.glide.load.model.StreamEncoder;
+import com.google.gson.JsonObject;
 import com.hfy.demo01.R;
 import com.hfy.demo01.module.home.designsupportlibrarytest.NotificationActivity;
 import com.hfy.demo01.module.home.designsupportlibrarytest.ViewEventTestActivity;
 import com.hfy.demo01.module.home.designsupportlibrarytest.MaterialDesignWidgetActivity;
 import com.hfy.demo01.module.mvp.view.MvpActivity;
+import com.pixplicity.sharp.Sharp;
+
+import java.io.InputStream;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -33,12 +44,15 @@ import butterknife.Unbinder;
 public class FirstFragment extends Fragment {
 
     private static final int PERMISSIOINS_REQUEST_CODE_CALL = 1000;
+    private static final String TAG = "FirstFragment";
     @BindView(R.id.button)
     Button mButton;
 
     @BindView(R.id.btn_go_to_notification_activity)
     Button mBtnGoToNotificationPage;
 
+    @BindView(R.id.iv_card_view)
+    ImageView mImageView;
 
     private Unbinder mUnbind;
 
@@ -52,6 +66,43 @@ public class FirstFragment extends Fragment {
         mUnbind = ButterKnife.bind(this, view);
 
         return view;
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+
+        //Sharp 加载SVG文件
+        Sharp.loadResource(getResources(), R.raw.text).into(mImageView);
+
+        //glide-svg 库里面的方法， 清晰
+//        RequestBuilder<PictureDrawable> requestBuilder = GlideApp.with(this)
+//                .as(PictureDrawable.class)
+//                .transition(withCrossFade())
+//                .listener(new SvgSoftwareLayerSetter());
+//        requestBuilder.load("http://www.webhek.com/wordpress/wp-content/uploads/2014/05/kiwi.svg").into(viewImage1);
+//        requestBuilder.load(R.raw.text).into(mImageView);
+
+
+        //可以加载svg图片?，不过显示没有上面那种方式清晰(** 实测不行啊啊啊啊啊 )
+//        Glide.with(this).load("http://www.webhek.com/wordpress/wp-content/uploads/2014/05/kiwi.svg").into(mImageView);
+//        Glide.with(this).load(R.raw.text).into(mImageView);
+
+        //这种方法？？？
+//        GenericRequestBuilder<Uri, InputStream, SVG, PictureDrawable> requestBuilder = Glide.with(this)
+//                .using(Glide.buildStreamModelLoader(Uri.class, this), InputStream.class)
+//                .from(Uri.class)
+//                .as(SVG.class)
+//                .transcode(new SvgDrawableTranscoder(), PictureDrawable.class)
+//                .sourceEncoder(new StreamEncoder())
+//                .cacheDecoder(new FileToStreamDecoder<>(new SVGDecoder()))
+//                .decoder(new SVGDecoder())
+//                .listener(new SvgSoftwareLayerSetter<Uri>());
+//
+//        requestBuilder
+//                .diskCacheStrategy(DiskCacheStrategy.NONE)
+//                .load(Uri.parse("http://www.webhek.com/wordpress/wp-content/uploads/2014/05/kiwi.svg"))
+//                .into(cardHolder.iv_card);
     }
 
     @OnClick({R.id.button,

@@ -13,10 +13,20 @@
         android:layout_height="wrap_content"
         android:text="普通通知"/>
     <Button
-        android:id="@+id/btn_fold"
+        android:id="@+id/btn_fold_picture"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="折叠通知"/>
+        android:text="折叠通知_大图"/>
+    <Button
+        android:id="@+id/btn_fold_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="折叠通知_大文字"/>
+    <Button
+        android:id="@+id/btn_fold_custom"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="折叠通知_自定义"/>
     <Button
         android:id="@+id/btn_hang"
         android:layout_width="match_parent"
