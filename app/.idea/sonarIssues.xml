@@ -8,57 +8,12 @@
             <set />
           </value>
         </entry>
-        <entry key="$PROJECT_DIR$/src/main/java/com/hfy/demo01/MainActivity.java">
+        <entry key="$PROJECT_DIR$/../.gitignore">
           <value>
             <set />
           </value>
         </entry>
-        <entry key="$PROJECT_DIR$/src/main/java/com/hfy/demo01/module/home/fragment/FirstFragment.java">
-          <value>
-            <set />
-          </value>
-        </entry>
-        <entry key="$PROJECT_DIR$/../../installment-android/app/src/main/java/io/silvrr/installment/module/adtips/AdTipProvider.java">
-          <value>
-            <set />
-          </value>
-        </entry>
-        <entry key="$PROJECT_DIR$/../../installment-android/app/src/main/java/io/silvrr/installment/module/home/homepage/fragment/HomePageFragment.java">
-          <value>
-            <set />
-          </value>
-        </entry>
-        <entry key="$PROJECT_DIR$/../../installment-android/app/src/main/java/io/silvrr/installment/module/home/homepage/view/ShoppingCartBinder.java">
-          <value>
-            <set />
-          </value>
-        </entry>
-        <entry key="$PROJECT_DIR$/../../installment-android/app/src/main/java/io/silvrr/installment/module/message/act/ActPresenter.java">
-          <value>
-            <set />
-          </value>
-        </entry>
-        <entry key="$PROJECT_DIR$/../../installment-android/app/src/main/java/io/silvrr/installment/module/pay/qr/coupon/ScanCouponDialogHolder.java">
-          <value>
-            <set />
-          </value>
-        </entry>
-        <entry key="$PROJECT_DIR$/../../installment-android/app/src/main/java/io/silvrr/installment/module/pay/qr/orderconfirm/CashPayVendorDialogHolder.java">
-          <value>
-            <set />
-          </value>
-        </entry>
-        <entry key="$PROJECT_DIR$/../../installment-android/app/src/main/java/io/silvrr/installment/module/pay/qr/orderconfirm/PayVendorDialogHolder.java">
-          <value>
-            <set />
-          </value>
-        </entry>
-        <entry key="$PROJECT_DIR$/../../installment-android/app/src/main/java/io/silvrr/installment/pushimp/PushBuriedUtil.java">
-          <value>
-            <set />
-          </value>
-        </entry>
-        <entry key="$PROJECT_DIR$/../../installment-android/library_push/src/main/java/io/silvrr/installment/push/Notify.java">
+        <entry key="$PROJECT_DIR$/.idea/workspace.xml">
           <value>
             <set />
           </value>
