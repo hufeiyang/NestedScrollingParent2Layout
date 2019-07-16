@@ -5,7 +5,6 @@ import android.databinding.Bindable;
 import android.databinding.BindingAdapter;
 import android.widget.TextView;
 
-import com.hfy.demo01.BR;
 
 /**
  * 侠客 ViewModel
@@ -36,7 +35,7 @@ public class Man extends BaseObservable {
      */
     public void setName(String name) {
         this.name = name;
-        notifyPropertyChanged(BR.name);
+//        notifyPropertyChanged(BR.name);
     }
 
     @Bindable
@@ -46,7 +45,7 @@ public class Man extends BaseObservable {
 
     public void setLevel(String level) {
         this.level = level;
-        notifyPropertyChanged(BR.level);
+//        notifyPropertyChanged(BR.level);
     }
 
 }

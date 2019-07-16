@@ -5,6 +5,19 @@
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.CALL_PHONE" />
 
+    <!-- &lt;!&ndash; Set custom default icon. This is used when no icon is set for incoming notification messages. -->
+    <!-- See README(https://goo.gl/l4GJaQ) for more. &ndash;&gt; -->
+    <!-- <meta-data -->
+    <!-- android:name="com.google.firebase.messaging.default_notification_icon" -->
+    <!-- android:resource="@drawable/ic_stat_ic_notification" /> -->
+    <!-- &lt;!&ndash; Set color used with incoming notification messages. This is used when no color is set for the incoming -->
+    <!-- notification message. See README(https://goo.gl/6BKBk7) for more. &ndash;&gt; -->
+    <!-- <meta-data -->
+    <!-- android:name="com.google.firebase.messaging.default_notification_color" -->
+    <!-- android:resource="@color/colorAccent" /> -->
+    <!-- <meta-data -->
+    <!-- android:name="com.google.firebase.messaging.default_notification_channel_id" -->
+    <!-- android:value="@string/default_notification_channel_id" /> -->
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -21,7 +34,6 @@
         </activity>
         <activity android:name=".module.mvp.view.MvpActivity" />
         <activity android:name=".module.mvvm.MvvmActivity" />
-        <activity android:name=".module.mvvm.RecyclerActivity" />
         <activity android:name=".module.home.designsupportlibrarytest.NotificationActivity" />
         <activity android:name=".module.home.designsupportlibrarytest.MaterialDesignWidgetActivity" />
         <activity android:name=".module.home.designsupportlibrarytest.ViewEventTestActivity" />
@@ -32,26 +44,13 @@
                 <action android:name="com.google.firebase.INSTANCE_ID_EVENT" />
             </intent-filter>
         </service>
-        <service
-            android:name=".common.push.MYFirebaseMessagingService">
+        <service android:name=".common.push.MYFirebaseMessagingService">
             <intent-filter>
                 <action android:name="com.google.firebase.MESSAGING_EVENT" />
             </intent-filter>
-
         </service>
+
+        <activity android:name=".module.home.view.CommonTitleTestActivityActivity"></activity>
     </application>
 
-    <!--&lt;!&ndash; Set custom default icon. This is used when no icon is set for incoming notification messages.-->
-     <!--See README(https://goo.gl/l4GJaQ) for more. &ndash;&gt;-->
-    <!--<meta-data-->
-        <!--android:name="com.google.firebase.messaging.default_notification_icon"-->
-        <!--android:resource="@drawable/ic_stat_ic_notification" />-->
-    <!--&lt;!&ndash; Set color used with incoming notification messages. This is used when no color is set for the incoming-->
-         <!--notification message. See README(https://goo.gl/6BKBk7) for more. &ndash;&gt;-->
-    <!--<meta-data-->
-        <!--android:name="com.google.firebase.messaging.default_notification_color"-->
-        <!--android:resource="@color/colorAccent" />-->
-    <!--<meta-data-->
-        <!--android:name="com.google.firebase.messaging.default_notification_channel_id"-->
-        <!--android:value="@string/default_notification_channel_id" />-->
 </manifest>

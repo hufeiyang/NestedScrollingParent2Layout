@@ -9,7 +9,6 @@ import android.view.ViewGroup;
 import android.widget.Button;
 
 import com.hfy.demo01.R;
-import com.hfy.demo01.module.mvvm.RecyclerActivity;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -40,7 +39,7 @@ public class SecondFragment extends Fragment {
         switch (view.getId()) {
             case R.id.button:
 //                MvvmActivity.launch(getActivity());
-                RecyclerActivity.launch(getActivity());
+//                RecyclerActivity.launch(getActivity());
                 break;
             default:
                 break;

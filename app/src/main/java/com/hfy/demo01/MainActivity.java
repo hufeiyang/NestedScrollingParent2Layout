@@ -29,7 +29,7 @@ import com.hfy.demo01.dagger2.bean.Car;
 import com.hfy.demo01.dagger2.bean.Man;
 import com.hfy.demo01.dagger2.bean.Watch;
 //import com.hfy.demo01.dagger2.component.DaggerMainActivityComponent;
-import com.hfy.demo01.dagger2.component.DaggerMainActivityComponent;
+//import com.hfy.demo01.dagger2.component.DaggerMainActivityComponent;
 import com.hfy.demo01.module.home.adapter.HomePagerAdapter;
 import com.hfy.demo01.module.home.fragment.FirstFragment;
 import com.hfy.demo01.module.home.fragment.SecondFragment;
@@ -124,17 +124,17 @@ public class MainActivity extends AppCompatActivity {
 
     private void testDagger2() {
         //调用此句，mWatch、mGson
-        DaggerMainActivityComponent.create().inject(this);
-        boolean equals = mWatch.equals("");
-        mWatch.work();
+//        DaggerMainActivityComponent.create().inject(this);
+//        boolean equals = mWatch.equals("");
+//        mWatch.work();
 
-        String json = "{'name':'hfy'}";
-        Man man = mGson.fromJson(json, Man.class);
-        Log.i(TAG, "initData: " + man.toString());
-        Log.i(TAG, "initData: mGson:" + mGson.hashCode() + ",mGson1:" + mGson1.hashCode());
-
-        Car car = mCarLazy.get();
-        car.run();
+//        String json = "{'name':'hfy'}";
+//        Man man = mGson.fromJson(json, Man.class);
+//        Log.i(TAG, "initData: " + man.toString());
+//        Log.i(TAG, "initData: mGson:" + mGson.hashCode() + ",mGson1:" + mGson1.hashCode());
+//
+//        Car car = mCarLazy.get();
+//        car.run();
     }
 
     private void initConfig() {

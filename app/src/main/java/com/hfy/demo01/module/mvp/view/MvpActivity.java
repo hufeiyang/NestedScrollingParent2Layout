@@ -10,8 +10,6 @@ import android.widget.Button;
 import android.widget.Toast;
 
 import com.hfy.demo01.R;
-import com.hfy.demo01.module.mvp.dagger2.DaggerIpInfoActivityComponent;
-import com.hfy.demo01.module.mvp.dagger2.IIpInfoViewModule;
 import com.hfy.demo01.module.mvp.model.IpInfo;
 import com.hfy.demo01.module.mvp.presenter.IpInfoPresenter;
 
@@ -111,8 +109,8 @@ public class MvpActivity extends AppCompatActivity implements IIpInfoView {
 //            mIpInfoPresenter = new IpInfoPresenter(this);
 //        }
 
-        DaggerIpInfoActivityComponent.builder().iIpInfoViewModule(new IIpInfoViewModule(this)).build().inject(this);
-        mIpInfoPresenter.getIpInfo("59.108.54.37");
+//        DaggerIpInfoActivityComponent.builder().iIpInfoViewModule(new IIpInfoViewModule(this)).build().inject(this);
+//        mIpInfoPresenter.getIpInfo("59.108.54.37");
 
 //        取消请求
 //        mIpInfoPresenter.unsubscribe();

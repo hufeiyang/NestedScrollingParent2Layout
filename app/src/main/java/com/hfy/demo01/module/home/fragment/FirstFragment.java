@@ -19,6 +19,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
@@ -27,13 +28,18 @@ import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.bumptech.glide.load.model.StreamEncoder;
 import com.google.gson.JsonObject;
 import com.hfy.demo01.R;
+import com.hfy.demo01.common.customview.MyToast;
 import com.hfy.demo01.module.home.designsupportlibrarytest.NotificationActivity;
 import com.hfy.demo01.module.home.designsupportlibrarytest.ViewEventTestActivity;
 import com.hfy.demo01.module.home.designsupportlibrarytest.MaterialDesignWidgetActivity;
+import com.hfy.demo01.module.home.view.CommonTitleTestActivityActivity;
 import com.hfy.demo01.module.mvp.view.MvpActivity;
 import com.pixplicity.sharp.Sharp;
 
 import java.io.InputStream;
+import java.util.ArrayList;
+import java.util.Timer;
+import java.util.TimerTask;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -54,7 +60,17 @@ public class FirstFragment extends Fragment {
     @BindView(R.id.iv_card_view)
     ImageView mImageView;
 
+//    @BindView(R.id.flash_sale_progress_bar)
+//    ProgressBar progressBar;
+//
+//    @BindView(R.id.autoverticalscrolltextview)
+//    AutoVerticalScrollTextView autoVerticalScrollTextView;
+
+    @BindView(R.id.autoSwitchTextView)
+    AutoSwitchTextView autoSwitchTextView;
+
     private Unbinder mUnbind;
+    private int tempProgress = 0;
 
     @Nullable
     @Override
@@ -109,7 +125,9 @@ public class FirstFragment extends Fragment {
             R.id.btn_go_to_notification_activity,
             R.id.btn_go_to_call_activity,
             R.id.btn_go_to_material_design_activity,
-            R.id.btn_go_to_view_test_activity})
+            R.id.btn_go_to_view_test_activity,
+            R.id.btn_go_to_common_title_test_activity
+    })
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.button:
@@ -126,6 +144,39 @@ public class FirstFragment extends Fragment {
                 break;
             case R.id.btn_go_to_view_test_activity:
                 ViewEventTestActivity.launch(getActivity());
+//                MyToast.showMsg(getActivity(), "hhhh");
+//                MyToast.showMsg(getActivity(), "hhhfffyyy");
+
+                break;
+
+            case R.id.btn_go_to_common_title_test_activity:
+//                CommonTitleTestActivityActivity.launch(getActivity());
+
+                ArrayList<String> scrollMessageList = new ArrayList<>();
+                scrollMessageList.add("hehe撒打发斯蒂芬");
+                scrollMessageList.add("aaa沙发上发生的发放");
+                scrollMessageList.add("hjjk阿斯蒂芬");
+
+//                autoVerticalScrollTextView.setData(scrollMessageList);
+//                autoVerticalScrollTextView.start();
+
+                autoSwitchTextView.setData(scrollMessageList);
+
+//                int progress = 80;
+
+//                //1000ms走完100，10ms走1， 所以10*progress ms 走完。
+//                long period = 10;
+//                Timer timer = new Timer();
+//                timer.schedule(new TimerTask() {
+//                    @Override
+//                    public void run() {
+//                        if (tempProgress == progress){
+//                            cancel();
+//                        }
+//                        progressBar.setProgress(tempProgress);
+//                        tempProgress = tempProgress + 1 ;
+//                    }
+//                }, 0, period);
                 break;
             default:
                 break;

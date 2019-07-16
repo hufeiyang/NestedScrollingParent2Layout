@@ -41,6 +41,36 @@
             android:text="go：view事件体系test"
             android:textAllCaps="false"/>
 
+        <Button
+            android:id="@+id/btn_go_to_common_title_test_activity"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="go：common_title"
+            android:textAllCaps="false"/>
+
+        <com.hfy.demo01.module.home.fragment.AutoSwitchTextView
+            android:id="@+id/autoSwitchTextView"
+            android:layout_marginTop="30dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+        </com.hfy.demo01.module.home.fragment.AutoSwitchTextView>
+
+        <!--<com.hfy.demo01.module.home.fragment.AutoVerticalScrollTextView-->
+            <!--android:id="@+id/autoverticalscrolltextview"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content">-->
+
+        <!--</com.hfy.demo01.module.home.fragment.AutoVerticalScrollTextView>-->
+
+        <!--<ProgressBar-->
+            <!--android:id="@+id/flash_sale_progress_bar"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="8dp"-->
+            <!--android:layout_gravity="center"-->
+            <!--style="@android:style/Widget.ProgressBar.Horizontal"-->
+            <!--android:layerType="software"/>-->
+
         <!--
         cardCornerRadius圆角半径；
         cardElevation阴影半径
@@ -51,7 +81,7 @@
             android:layout_height="wrap_content"
             app:cardBackgroundColor="@color/colorPrimary"
             app:cardCornerRadius="15dp"
-            android:layout_marginTop="50dp">
+            android:layout_marginTop="60dp">
 
             <ImageView
                 android:id="@+id/iv_card_view"
