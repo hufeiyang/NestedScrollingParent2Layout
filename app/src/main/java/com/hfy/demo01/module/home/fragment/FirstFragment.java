@@ -60,11 +60,11 @@ public class FirstFragment extends Fragment {
     @BindView(R.id.iv_card_view)
     ImageView mImageView;
 
-//    @BindView(R.id.flash_sale_progress_bar)
+    //    @BindView(R.id.flash_sale_progress_bar)
 //    ProgressBar progressBar;
 //
-//    @BindView(R.id.autoverticalscrolltextview)
-//    AutoVerticalScrollTextView autoVerticalScrollTextView;
+    @BindView(R.id.autoverticalscrolltextview)
+    AutoVerticalScrollTextView autoVerticalScrollTextView;
 
     @BindView(R.id.autoSwitchTextView)
     AutoSwitchTextView autoSwitchTextView;
@@ -119,6 +119,15 @@ public class FirstFragment extends Fragment {
 //                .diskCacheStrategy(DiskCacheStrategy.NONE)
 //                .load(Uri.parse("http://www.webhek.com/wordpress/wp-content/uploads/2014/05/kiwi.svg"))
 //                .into(cardHolder.iv_card);
+
+        ArrayList<String> scrollMessageList = new ArrayList<>();
+        scrollMessageList.add("hehe撒打发斯蒂芬");
+        scrollMessageList.add("aaa沙发上发生的发放");
+        scrollMessageList.add("hjjk阿斯蒂芬");
+        scrollMessageList.add("hjjk阿斯是单方事多个");
+
+        autoVerticalScrollTextView.setData(scrollMessageList);
+        autoVerticalScrollTextView.start();
     }
 
     @OnClick({R.id.button,
@@ -156,9 +165,6 @@ public class FirstFragment extends Fragment {
                 scrollMessageList.add("hehe撒打发斯蒂芬");
                 scrollMessageList.add("aaa沙发上发生的发放");
                 scrollMessageList.add("hjjk阿斯蒂芬");
-
-//                autoVerticalScrollTextView.setData(scrollMessageList);
-//                autoVerticalScrollTextView.start();
 
                 autoSwitchTextView.setData(scrollMessageList);
 

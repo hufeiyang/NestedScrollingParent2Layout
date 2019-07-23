@@ -56,12 +56,14 @@
 
         </com.hfy.demo01.module.home.fragment.AutoSwitchTextView>
 
-        <!--<com.hfy.demo01.module.home.fragment.AutoVerticalScrollTextView-->
-            <!--android:id="@+id/autoverticalscrolltextview"-->
-            <!--android:layout_width="match_parent"-->
-            <!--android:layout_height="wrap_content">-->
+        <com.hfy.demo01.module.home.fragment.AutoVerticalScrollTextView
+            android:id="@+id/autoverticalscrolltextview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="10dp">
 
-        <!--</com.hfy.demo01.module.home.fragment.AutoVerticalScrollTextView>-->
+        </com.hfy.demo01.module.home.fragment.AutoVerticalScrollTextView>
 
         <!--<ProgressBar-->
             <!--android:id="@+id/flash_sale_progress_bar"-->

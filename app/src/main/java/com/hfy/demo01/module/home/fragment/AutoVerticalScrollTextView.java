@@ -71,7 +71,7 @@ public class AutoVerticalScrollTextView extends TextSwitcher implements ViewSwit
     private Rotate3dAnimation createInAnim(boolean turnIn, boolean turnUp) {
 
         Rotate3dAnimation rotation = new Rotate3dAnimation(turnIn, turnUp);
-        rotation.setDuration(500);//执行动画的时间
+        rotation.setDuration(1500);//执行动画的时间
         rotation.setFillAfter(false);//是否保持动画完毕之后的状态
         rotation.setInterpolator(new AccelerateInterpolator());//设置加速模式
 
@@ -81,7 +81,7 @@ public class AutoVerticalScrollTextView extends TextSwitcher implements ViewSwit
     private Rotate3dAnimation createOutAnim(boolean turnIn, boolean turnUp) {
 
         Rotate3dAnimation rotation = new Rotate3dAnimation(turnIn, turnUp);
-        rotation.setDuration(1200);//执行动画的时间
+        rotation.setDuration(1500);//执行动画的时间
         rotation.setFillAfter(false);//是否保持动画完毕之后的状态
         rotation.setInterpolator(new AccelerateInterpolator());//设置加速模式
 
@@ -103,14 +103,16 @@ public class AutoVerticalScrollTextView extends TextSwitcher implements ViewSwit
         textView.setSingleLine(true);
         textView.setEllipsize(TextUtils.TruncateAt.MARQUEE);
         textView.setMarqueeRepeatLimit(1);
-        textView.setTextColor(getResources().getColor(R.color.colorAccent));//TODO
+        textView.setTextColor(getResources().getColor(R.color.colorPrimary));//TODO
         textView.setBackgroundResource(R.drawable.text_switch_bg);
 
-        Drawable leftDrawable = AppCompatResources.getDrawable(mContext, R.mipmap.ic_launcher);
+        Drawable leftDrawable = AppCompatResources.getDrawable(mContext, R.mipmap.icon_item_detail_back);
         int w = leftDrawable.getIntrinsicWidth();
         int h = leftDrawable.getIntrinsicHeight();
         leftDrawable.setBounds(0, 0, w, h);
         textView.setCompoundDrawables(leftDrawable, null, null, null);
+        textView.setCompoundDrawablePadding(10);
+        textView.setPadding(10,10,10,10);
         return textView;
 
     }
