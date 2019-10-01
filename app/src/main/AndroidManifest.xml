@@ -50,7 +50,6 @@
             </intent-filter>
         </service>
 
-        <activity android:name=".module.home.view.CommonTitleTestActivityActivity"></activity>
     </application>
 
 </manifest>
