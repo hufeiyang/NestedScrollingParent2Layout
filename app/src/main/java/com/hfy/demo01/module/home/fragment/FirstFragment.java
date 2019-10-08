@@ -20,9 +20,10 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.hfy.demo01.R;
+import com.hfy.demo01.module.home.designsupportlibrarytest.MaterialDesignWidgetActivity;
 import com.hfy.demo01.module.home.designsupportlibrarytest.NotificationActivity;
 import com.hfy.demo01.module.home.designsupportlibrarytest.ViewEventTestActivity;
-import com.hfy.demo01.module.home.designsupportlibrarytest.MaterialDesignWidgetActivity;
+import com.hfy.demo01.module.home.touchevent.NestedScrollTestActivity;
 import com.hfy.demo01.module.mvp.view.MvpActivity;
 import com.pixplicity.sharp.Sharp;
 
@@ -47,14 +48,17 @@ public class FirstFragment extends Fragment {
     @BindView(R.id.iv_card_view)
     ImageView mImageView;
 
-    //    @BindView(R.id.flash_sale_progress_bar)
-//    ProgressBar progressBar;
-//
     @BindView(R.id.autoverticalscrolltextview)
     AutoVerticalScrollTextView autoVerticalScrollTextView;
 
     @BindView(R.id.autoSwitchTextView)
     AutoSwitchTextView autoSwitchTextView;
+
+    @BindView(R.id.btn_test_traditional_nested_scroll)
+    Button btnTestTraditionalNestedScroll;
+
+    @BindView(R.id.btn_test_nested_scrolling)
+    Button btnTestNestedScrolling;
 
     private Unbinder mUnbind;
     private int tempProgress = 0;
@@ -122,7 +126,9 @@ public class FirstFragment extends Fragment {
             R.id.btn_go_to_call_activity,
             R.id.btn_go_to_material_design_activity,
             R.id.btn_go_to_view_test_activity,
-            R.id.btn_go_to_common_title_test_activity
+            R.id.btn_go_to_SwitchTextView,
+            R.id.btn_test_traditional_nested_scroll,
+            R.id.btn_test_nested_scrolling
     })
     public void onClick(View view) {
         switch (view.getId()) {
@@ -140,36 +146,20 @@ public class FirstFragment extends Fragment {
                 break;
             case R.id.btn_go_to_view_test_activity:
                 ViewEventTestActivity.launch(getActivity());
-//                MyToast.showMsg(getActivity(), "hhhh");
-//                MyToast.showMsg(getActivity(), "hhhfffyyy");
-
                 break;
-
-            case R.id.btn_go_to_common_title_test_activity:
-//                CommonTitleTestActivityActivity.launch(getActivity());
-
+            case R.id.btn_go_to_SwitchTextView:
                 ArrayList<String> scrollMessageList = new ArrayList<>();
                 scrollMessageList.add("hehe撒打发斯蒂芬");
                 scrollMessageList.add("aaa沙发上发生的发放");
                 scrollMessageList.add("hjjk阿斯蒂芬");
-
                 autoSwitchTextView.setData(scrollMessageList);
+                break;
+            case R.id.btn_test_traditional_nested_scroll:
+                NestedScrollTestActivity.launch(getActivity(), false);
+                break;
+            case R.id.btn_test_nested_scrolling:
+                NestedScrollTestActivity.launch(getActivity(), true);
 
-//                int progress = 80;
-
-//                //1000ms走完100，10ms走1， 所以10*progress ms 走完。
-//                long period = 10;
-//                Timer timer = new Timer();
-//                timer.schedule(new TimerTask() {
-//                    @Override
-//                    public void run() {
-//                        if (tempProgress == progress){
-//                            cancel();
-//                        }
-//                        progressBar.setProgress(tempProgress);
-//                        tempProgress = tempProgress + 1 ;
-//                    }
-//                }, 0, period);
                 break;
             default:
                 break;
@@ -247,5 +237,11 @@ public class FirstFragment extends Fragment {
         intent.setAction(Intent.ACTION_CALL);
         intent.setData(Uri.parse("tel:" + "10086"));
         startActivity(intent);
+    }
+
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        mUnbind.unbind();
     }
 }

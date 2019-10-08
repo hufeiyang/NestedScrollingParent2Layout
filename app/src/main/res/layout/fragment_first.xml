@@ -35,6 +35,14 @@
             android:text="MaterialDesign控件" />
 
         <Button
+            android:id="@+id/btn_go_to_SwitchTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="show SwitchTextView"
+            android:textAllCaps="false"/>
+
+
+        <Button
             android:id="@+id/btn_go_to_view_test_activity"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -42,10 +50,17 @@
             android:textAllCaps="false"/>
 
         <Button
-            android:id="@+id/btn_go_to_common_title_test_activity"
+            android:id="@+id/btn_test_traditional_nested_scroll"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="go：common_title"
+            android:text="传统分发机制下的嵌套滑动-外层scrollView"
+            android:textAllCaps="false"/>
+
+        <Button
+            android:id="@+id/btn_test_nested_scrolling"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="新的NestedScrilling机制-外层NestedScrollView"
             android:textAllCaps="false"/>
 
         <com.hfy.demo01.module.home.fragment.AutoSwitchTextView
@@ -65,13 +80,7 @@
 
         </com.hfy.demo01.module.home.fragment.AutoVerticalScrollTextView>
 
-        <!--<ProgressBar-->
-            <!--android:id="@+id/flash_sale_progress_bar"-->
-            <!--android:layout_width="match_parent"-->
-            <!--android:layout_height="8dp"-->
-            <!--android:layout_gravity="center"-->
-            <!--style="@android:style/Widget.ProgressBar.Horizontal"-->
-            <!--android:layerType="software"/>-->
+
 
         <!--
         cardCornerRadius圆角半径；
