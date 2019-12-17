@@ -23,6 +23,7 @@ import com.hfy.demo01.R;
 import com.hfy.demo01.module.home.designsupportlibrarytest.MaterialDesignWidgetActivity;
 import com.hfy.demo01.module.home.designsupportlibrarytest.NotificationActivity;
 import com.hfy.demo01.module.home.designsupportlibrarytest.ViewEventTestActivity;
+import com.hfy.demo01.module.home.leaktest.LeakTestActivity;
 import com.hfy.demo01.module.home.touchevent.NestedScrollTestActivity;
 import com.hfy.demo01.module.mvp.view.MvpActivity;
 import com.pixplicity.sharp.Sharp;
@@ -59,6 +60,9 @@ public class FirstFragment extends Fragment {
 
     @BindView(R.id.btn_test_nested_scrolling)
     Button btnTestNestedScrolling;
+
+    @BindView(R.id.btn_test_leak)
+    Button btnTestLeak;
 
     private Unbinder mUnbind;
     private int tempProgress = 0;
@@ -128,7 +132,8 @@ public class FirstFragment extends Fragment {
             R.id.btn_go_to_view_test_activity,
             R.id.btn_go_to_SwitchTextView,
             R.id.btn_test_traditional_nested_scroll,
-            R.id.btn_test_nested_scrolling
+            R.id.btn_test_nested_scrolling,
+            R.id.btn_test_leak
     })
     public void onClick(View view) {
         switch (view.getId()) {
@@ -159,6 +164,11 @@ public class FirstFragment extends Fragment {
                 break;
             case R.id.btn_test_nested_scrolling:
                 NestedScrollTestActivity.launch(getActivity(), true);
+
+                break;
+
+            case R.id.btn_test_leak:
+                LeakTestActivity.launch(getActivity());
 
                 break;
             default:

@@ -3,8 +3,12 @@ package com.hfy.demo01;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.PixelFormat;
 import android.graphics.drawable.ColorDrawable;
+import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
+import android.provider.Settings;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.design.widget.NavigationView;
@@ -21,7 +25,11 @@ import android.util.Log;
 import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.MotionEvent;
 import android.view.View;
+import android.view.ViewGroup;
+import android.view.WindowManager;
+import android.widget.Button;
 import android.widget.Toast;
 
 import com.google.gson.Gson;
@@ -52,6 +60,7 @@ import dagger.Lazy;
 public class MainActivity extends AppCompatActivity {
 
     private static final String TAG = "hfy";
+    private static final int OVERLAY_PERMISSION_REQ_CODE = 1000;
 
     @BindView(R.id.tl_home_page)
     TabLayout mTlHomeTab;
@@ -113,6 +122,12 @@ public class MainActivity extends AppCompatActivity {
         initData();
 
         //jenkins 在push到github后 自动构建，test
+
+        testToast();
+    }
+
+    private void testToast() {
+        Toast.makeText(this, "hehe", Toast.LENGTH_SHORT).show();
     }
 
     /**
@@ -155,6 +170,8 @@ public class MainActivity extends AppCompatActivity {
         initToolbar();
 
         initDrawerLayout();
+
+        initCustomWindow();
     }
 
     private void initToolbar() {
@@ -218,6 +235,7 @@ public class MainActivity extends AppCompatActivity {
         mActionBarDrawerToggle.syncState();
 
         mDrawerLayout.addDrawerListener(mActionBarDrawerToggle);
+        Toast.makeText(this, "hehe", Toast.LENGTH_SHORT).show();
 
         //侧滑页面的导航菜单 选中监听
 //        mNavigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
@@ -229,6 +247,49 @@ public class MainActivity extends AppCompatActivity {
 //                return true;
 //            }
 //        });
+    }
+
+    private void initCustomWindow() {
+        //6.0以上需要用户手动打开权限
+        // (SYSTEM_ALERT_WINDOW and WRITE_SETTINGS, 这两个权限比较特殊，
+        // 不能通过代码申请方式获取，必须得用户打开软件设置页手动打开，才能授权。Manifest申请该权限是无效的。)
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M){
+            if (!Settings.canDrawOverlays(this)) {
+                //打开设置页，让用户打开设置
+                Toast.makeText(this, "can not DrawOverlays", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(Settings.ACTION_MANAGE_OVERLAY_PERMISSION, Uri.parse("package:" + MainActivity.this.getPackageName()));
+                startActivityForResult(intent, OVERLAY_PERMISSION_REQ_CODE);
+            }else {
+                //已经打开了权限
+                handleAddWindow();
+            }
+        }else {
+            //6.0以下直接 Manifest申请该权限 就行。
+            handleAddWindow();
+        }
+    }
+
+    private void handleAddWindow() {
+        Button view = new Button(this);
+        view.setText("添加到window中的button");
+
+        WindowManager.LayoutParams layoutParams = new WindowManager.LayoutParams(
+                WindowManager.LayoutParams.WRAP_CONTENT,
+                WindowManager.LayoutParams.WRAP_CONTENT,
+                0, 0,
+                PixelFormat.TRANSPARENT
+        );
+        // flag 设置 Window 属性
+        layoutParams.flags= WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE | WindowManager.LayoutParams.FLAG_NOT_TOUCH_MODAL;
+        // type 设置 Window 类别（层级）
+        layoutParams.type = WindowManager.LayoutParams.TYPE_APPLICATION_OVERLAY;
+
+        layoutParams.gravity = Gravity.TOP | Gravity.LEFT;
+        layoutParams.x = 100;
+        layoutParams.y = 100;
+
+        WindowManager windowManager = getWindowManager();
+        windowManager.addView(view, layoutParams);
     }
 
 
@@ -244,5 +305,22 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onDestroy() {
         super.onDestroy();
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        switch (requestCode){
+            case OVERLAY_PERMISSION_REQ_CODE:
+                if (Settings.canDrawOverlays(this)) {
+                    //打开了权限
+                    handleAddWindow();
+                }else {
+                    Toast.makeText(this, "can not DrawOverlays", Toast.LENGTH_SHORT).show();
+                }
+                break;
+            default:
+                break;
+        }
     }
 }
