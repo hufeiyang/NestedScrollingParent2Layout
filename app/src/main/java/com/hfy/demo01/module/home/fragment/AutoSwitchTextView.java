@@ -1,14 +1,17 @@
 package com.hfy.demo01.module.home.fragment;
 
-import android.animation.Animator;
-import android.animation.AnimatorListenerAdapter;
-import android.animation.AnimatorSet;
-import android.animation.ObjectAnimator;
 import android.content.Context;
+import android.graphics.Color;
 import android.support.annotation.Nullable;
 import android.util.AttributeSet;
+import android.util.TypedValue;
+import android.view.Gravity;
+import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.TranslateAnimation;
 import android.widget.FrameLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.hfy.demo01.R;
@@ -46,9 +49,12 @@ public class AutoSwitchTextView extends FrameLayout {
 
     private void initView(Context context) {
         mTextView = new TextView(context);
+        mTextView.setTextColor(Color.WHITE);
+        mTextView.setTextSize(TypedValue.COMPLEX_UNIT_DIP, 10);
         mTextView.setBackgroundResource(R.drawable.text_switch_bg);
-        LayoutParams layoutParams = new LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
-        mTextView.setPadding(8, 6 ,8 ,6);//todo
+        mTextView.setPadding(16, 0 ,16 ,0);
+        mTextView.setGravity(Gravity.CENTER);
+        RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.MATCH_PARENT);
         addView(mTextView, layoutParams);
     }
 
@@ -58,6 +64,7 @@ public class AutoSwitchTextView extends FrameLayout {
      */
     public void setData(List<String> stringList){
         this.stringList = stringList;
+        setVisibility(View.VISIBLE);
         start();
     }
 
@@ -70,31 +77,49 @@ public class AutoSwitchTextView extends FrameLayout {
         index = 0;
         setTextInfo(index);
 
-        AnimatorSet animatorSet = new AnimatorSet();
-
-        //从底部出现
-        ObjectAnimator showAnimator = ObjectAnimator.ofFloat(mTextView, "translationY", 100, 0);
+        //1.从底部出现
+        TranslateAnimation showAnimator = new TranslateAnimation(Animation.ABSOLUTE, 0, Animation.ABSOLUTE, 0,
+                Animation.RELATIVE_TO_PARENT, 1, Animation.ABSOLUTE, 0);
         showAnimator.setDuration(500);
+        showAnimator.setFillAfter(true);
 
-        //向上滑出
-        ObjectAnimator outAnimator = ObjectAnimator.ofFloat(mTextView, "translationY", 0, -100);
+        //2、停留1.5s 向上滑出
+        TranslateAnimation outAnimator = new TranslateAnimation(Animation.ABSOLUTE, 0, Animation.RELATIVE_TO_SELF,
+                0, Animation.ABSOLUTE, 0, Animation.RELATIVE_TO_PARENT, -1);
         outAnimator.setDuration(1000);
-        outAnimator.addListener(new AnimatorListenerAdapter() {
+        outAnimator.setFillAfter(true);
+        outAnimator.setStartOffset(1500);
+
+        showAnimator.setAnimationListener(new AnimationEndListener() {
             @Override
-            public void onAnimationEnd(Animator animation) {
-                //动画结束后，继续下一个
+            void onAnimationFinish(Animation animation) {
+                mTextView.startAnimation(outAnimator);
+            }
+        });
+
+        outAnimator.setAnimationListener(new AnimationEndListener() {
+            @Override
+            void onAnimationFinish(Animation animation) {
                 index++;
                 if (index <= size - 1){
                     setTextInfo(index);
                     long nextPopupTime = getNextPopupTime(index);
-                    animatorSet.play(outAnimator).after(1500).after(showAnimator).after(nextPopupTime);
-                    animatorSet.start();
+                    showAnimator.setStartOffset(nextPopupTime);
+                    mTextView.startAnimation(showAnimator);
                 }
             }
         });
 
-        animatorSet.play(outAnimator).after(1500).after(showAnimator);
-        animatorSet.start();
+        mTextView.startAnimation(showAnimator);
+    }
+
+    /**
+     * 结束动画
+     */
+    public void finish(){
+        if (mTextView != null) {
+            mTextView.clearAnimation();
+        }
     }
 
     /**
@@ -105,7 +130,7 @@ public class AutoSwitchTextView extends FrameLayout {
     private long getNextPopupTime(int index) {
         // TODO: 2019/7/4 获取 等待多久后 继续下一条弹窗
 
-        return 0;
+        return 1000;
     }
 
 
@@ -116,6 +141,27 @@ public class AutoSwitchTextView extends FrameLayout {
     private void setTextInfo(int index) {
         String text = stringList.get(index);
         mTextView.setText(text);
+    }
+
+    abstract class AnimationEndListener implements Animation.AnimationListener{
+
+
+        @Override
+        public void onAnimationStart(Animation animation) {
+            //nothing
+        }
+
+        @Override
+        public void onAnimationEnd(Animation animation) {
+            onAnimationFinish(animation);
+        }
+
+        @Override
+        public void onAnimationRepeat(Animation animation) {
+            //nothing
+        }
+
+        abstract void onAnimationFinish(Animation animation);
     }
 
 }

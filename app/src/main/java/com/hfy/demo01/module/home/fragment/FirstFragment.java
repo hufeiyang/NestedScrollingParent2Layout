@@ -20,6 +20,7 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.hfy.demo01.R;
+import com.hfy.demo01.module.home.animation.AnimationTestActivity;
 import com.hfy.demo01.module.home.designsupportlibrarytest.MaterialDesignWidgetActivity;
 import com.hfy.demo01.module.home.designsupportlibrarytest.NotificationActivity;
 import com.hfy.demo01.module.home.designsupportlibrarytest.ViewEventTestActivity;
@@ -63,6 +64,9 @@ public class FirstFragment extends Fragment {
 
     @BindView(R.id.btn_test_leak)
     Button btnTestLeak;
+
+    @BindView(R.id.btn_animation_test)
+    Button btnTestAnimation;
 
     private Unbinder mUnbind;
     private int tempProgress = 0;
@@ -133,7 +137,8 @@ public class FirstFragment extends Fragment {
             R.id.btn_go_to_SwitchTextView,
             R.id.btn_test_traditional_nested_scroll,
             R.id.btn_test_nested_scrolling,
-            R.id.btn_test_leak
+            R.id.btn_test_leak,
+            R.id.btn_animation_test
     })
     public void onClick(View view) {
         switch (view.getId()) {
@@ -169,6 +174,11 @@ public class FirstFragment extends Fragment {
 
             case R.id.btn_test_leak:
                 LeakTestActivity.launch(getActivity());
+
+                break;
+
+            case R.id.btn_animation_test:
+                AnimationTestActivity.launch(getActivity());
 
                 break;
             default:

@@ -70,6 +70,13 @@
             android:text="内存泄漏测试"
             android:textAllCaps="false"/>
 
+        <Button
+            android:id="@+id/btn_animation_test"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="动画测试"
+            android:textAllCaps="false"/>
+
         <com.hfy.demo01.module.home.fragment.AutoSwitchTextView
             android:id="@+id/autoSwitchTextView"
             android:layout_marginTop="30dp"

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<set xmlns:android="http://schemas.android.com/apk/res/android"
+    android:fillAfter="true"
+    android:interpolator="@android:anim/accelerate_decelerate_interpolator"
+    android:duration="5000"> <!--set里面的duration如果有值，会覆盖子标签的duration-->
+
+    <translate
+        android:fromXDelta="0"
+        android:toXDelta="200"
+        android:duration="1000"/>
+    <scale android:fromXScale="0.5"
+        android:toXScale="1"
+        android:fromYScale="0.5"
+        android:toYScale="1"
+        android:duration="2000"/>
+    <alpha android:fromAlpha="0.2"
+        android:toAlpha="1"
+        android:duration="3000"/>
+</set>
