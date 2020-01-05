@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--属性动画test,一般建议采用代码实现，不用xml-->
+<set xmlns:android="http://schemas.android.com/apk/res/android"
+    android:ordering="sequentially">
+
+
+    <!--repeatCount：默认是0，-1是无限循环-->
+    <!--repeatMode：重复模式：restart-从头来一遍、reverse-反向来一遍-->
+    <!--valueType：指定propertyName的类型可选intType、floatType-->
+
+    <!--android:pathData=""
+        android:propertyXName=""
+        android:propertyYName=""-->
+    <objectAnimator
+        android:propertyName="translationY"
+        android:duration="1000"
+        android:valueFrom="0"
+        android:valueTo="200"
+        android:startOffset="0"
+        android:repeatCount="0"
+        android:repeatMode="reverse"
+        android:valueType="floatType"
+        android:interpolator="@android:interpolator/accelerate_decelerate" />
+
+    <!--animator对用vueAnimator，比objectAnimator少了propertyName-->
+    <!--<animator-->
+        <!--android:duration="2000"-->
+        <!--android:valueFrom=""-->
+        <!--android:valueTo=""-->
+        <!--android:startOffset=""-->
+        <!--android:repeatCount=""-->
+        <!--android:repeatMode=""-->
+        <!--android:valueType=""-->
+        <!--android:interpolator=""-->
+        <!--android:pathData=""-->
+        <!--android:propertyXName=""-->
+        <!--android:propertyYName=""/>-->
+
+</set>

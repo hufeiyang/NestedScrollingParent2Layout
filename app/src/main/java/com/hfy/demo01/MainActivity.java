@@ -282,7 +282,10 @@ public class MainActivity extends AppCompatActivity {
         // flag 设置 Window 属性
         layoutParams.flags= WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE | WindowManager.LayoutParams.FLAG_NOT_TOUCH_MODAL;
         // type 设置 Window 类别（层级）
-        layoutParams.type = WindowManager.LayoutParams.TYPE_APPLICATION_OVERLAY;
+        layoutParams.type = WindowManager.LayoutParams.TYPE_SYSTEM_OVERLAY;
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            layoutParams.type = WindowManager.LayoutParams.TYPE_APPLICATION_OVERLAY;
+        }
 
         layoutParams.gravity = Gravity.TOP | Gravity.LEFT;
         layoutParams.x = 100;
