@@ -20,6 +20,9 @@ import butterknife.ButterKnife;
 
 /**
  * 传统事件分发机制下的冲突处理--内外都是 竖向滑动的解决 及 缺陷点。
+ *
+ * https://juejin.im/post/5d3e639e51882508dc163606#heading-13
+ * https://www.jianshu.com/p/bc6d703e7ca9
  */
 public class NestedScrollTestActivity extends AppCompatActivity {
 

@@ -124,6 +124,43 @@ public class MainActivity extends AppCompatActivity {
         //jenkins 在push到github后 自动构建，test
 
         testToast();
+
+        testThreadLocal();
+    }
+
+    /**
+     * threadLocal原理验证
+     */
+    private void testThreadLocal() {
+
+        ThreadLocal<Boolean> booleanThreadLocal = new ThreadLocal<>();
+        ThreadLocal<Integer> integerThreadLocal = new ThreadLocal<>();
+        booleanThreadLocal.set(true);
+        integerThreadLocal.set(0);
+        Log.i(TAG, "testThreadLocal: main thread, boolean= "+booleanThreadLocal.get());
+        Log.i(TAG, "testThreadLocal: main thread, int = "+integerThreadLocal.get());
+
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                booleanThreadLocal.set(false);
+                integerThreadLocal.set(1);
+                Log.i(TAG, "testThreadLocal: a thread, boolean="+booleanThreadLocal.get());
+                Log.i(TAG, "testThreadLocal: a thread, int = "+integerThreadLocal.get());
+
+            }
+        }).start();
+
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                booleanThreadLocal.set(null);
+                integerThreadLocal.set(2);
+                Log.i(TAG, "testThreadLocal: b thread, boolean="+booleanThreadLocal.get());
+                Log.i(TAG, "testThreadLocal: b thread, int = "+integerThreadLocal.get());
+
+            }
+        }).start();
     }
 
     private void testToast() {
