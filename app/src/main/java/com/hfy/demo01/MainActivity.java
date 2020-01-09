@@ -1,48 +1,36 @@
 package com.hfy.demo01;
 
 import android.content.Intent;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.graphics.PixelFormat;
-import android.graphics.drawable.ColorDrawable;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Looper;
+import android.os.Message;
 import android.provider.Settings;
-import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
-import android.support.design.widget.NavigationView;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.graphics.Palette;
 import android.support.v7.widget.Toolbar;
-import android.text.format.DateUtils;
 import android.util.Log;
 import android.view.Gravity;
-import android.view.Menu;
 import android.view.MenuItem;
-import android.view.MotionEvent;
 import android.view.View;
-import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.Toast;
 
 import com.google.gson.Gson;
 import com.hfy.demo01.dagger2.bean.Car;
-import com.hfy.demo01.dagger2.bean.Man;
 import com.hfy.demo01.dagger2.bean.Watch;
-//import com.hfy.demo01.dagger2.component.DaggerMainActivityComponent;
-//import com.hfy.demo01.dagger2.component.DaggerMainActivityComponent;
 import com.hfy.demo01.module.home.adapter.HomePagerAdapter;
 import com.hfy.demo01.module.home.fragment.FirstFragment;
 import com.hfy.demo01.module.home.fragment.SecondFragment;
-
-import org.greenrobot.eventbus.EventBus;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -52,6 +40,9 @@ import javax.inject.Inject;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import dagger.Lazy;
+
+//import com.hfy.demo01.dagger2.component.DaggerMainActivityComponent;
+//import com.hfy.demo01.dagger2.component.DaggerMainActivityComponent;
 
 /**
  * @author hufy
@@ -104,6 +95,9 @@ public class MainActivity extends AppCompatActivity {
 
     private ActionBarDrawerToggle mActionBarDrawerToggle;
 
+    private Handler mHandler;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -126,6 +120,80 @@ public class MainActivity extends AppCompatActivity {
         testToast();
 
         testThreadLocal();
+
+        testHandler();
+    }
+
+
+    /**
+     * Handler 使用方法 test
+     */
+    private void testHandler() {
+
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                //1、准备looper，即threadLocal<Looper>.set(new Looper())
+                Looper.prepare();
+
+                //2、创建handler实例
+                // 这个重写了handleMessage，handler是属于Handler的子类的实例
+//                Handler handler = new Handler() {
+//                    @Override
+//                    public void handleMessage(Message msg) {
+//                        super.handleMessage(msg);
+//                    }
+//                };
+
+                //这种就是Handler的实例
+                mHandler = new Handler(new Handler.Callback() {
+                    @Override
+                    public boolean handleMessage(Message msg) {
+                        Log.i(TAG, "child thread 1, handleMessage: what="+msg.what);
+                        return false;
+                    }
+                });
+
+                //3、looper启动,sThreadLocal.get()拿到looper，拿到queue，开始queue.next
+                Looper.loop();
+
+            }
+        }).start();
+
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+
+                try {
+                    Thread.sleep(1000);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+
+                //4.1、Handler.post发送消息，queue.enqueueMessage(msg),即消息入队列。
+                Log.i(TAG, "child thread2, mHandler.post");
+                mHandler.post(new Runnable() {
+                    @Override
+                    public void run() {
+                        Log.i(TAG, "child thread2, mHandler.post, run()");
+
+                    }
+                });
+            }
+        }).start();
+
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        //4.2、handler.sendMessage发送消息，queue.enqueueMessage(msg),即消息入队列。
+        Log.i(TAG, "main thread, sendMessage");
+        Message message = Message.obtain();
+        message.what = 100;
+        mHandler.sendMessage(message);
+
     }
 
     /**
