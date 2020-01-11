@@ -26,6 +26,7 @@ import android.widget.Button;
 import android.widget.Toast;
 
 import com.google.gson.Gson;
+import com.hfy.demo01.common.customview.MyToast;
 import com.hfy.demo01.dagger2.bean.Car;
 import com.hfy.demo01.dagger2.bean.Watch;
 import com.hfy.demo01.module.home.adapter.HomePagerAdapter;
@@ -375,9 +376,46 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void handleAddWindow() {
-        Button view = new Button(this);
-        view.setText("添加到window中的button");
 
+        //子线程创建window，只能由这个子线程访问 window的view
+        Button button = new Button(MainActivity.this);
+        button.setText("添加到window中的button");
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                MyToast.showMsg(MainActivity.this, "点了button");
+            }
+        });
+
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+
+                Looper.prepare();
+
+                addWindow(button);
+
+                new Handler().postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        button.setText("文字变了！！！");
+                    }
+                },3000);
+
+                Looper.loop();
+            }
+        }).start();
+
+        //这里执行就会报错：Only the original thread that created a view hierarchy can touch its views.
+//        new Handler().postDelayed(new Runnable() {
+//            @Override
+//            public void run() {
+//                button.setText("文字 you 变了！！！");
+//            }
+//        },4000);
+    }
+
+    private void addWindow(Button view) {
         WindowManager.LayoutParams layoutParams = new WindowManager.LayoutParams(
                 WindowManager.LayoutParams.WRAP_CONTENT,
                 WindowManager.LayoutParams.WRAP_CONTENT,
