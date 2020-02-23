@@ -1,7 +1,7 @@
 package com.hfy.demo01.module.mvvm.bean;
 
-import android.databinding.Bindable;
-import android.databinding.ObservableField;
+import androidx.databinding.Bindable;
+import androidx.databinding.ObservableField;
 
 /**
  * 侠客

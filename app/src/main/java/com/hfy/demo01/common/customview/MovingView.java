@@ -1,17 +1,14 @@
 package com.hfy.demo01.common.customview;
 
-import android.animation.ObjectAnimator;
 import android.content.Context;
 import android.graphics.Canvas;
-import android.support.annotation.Nullable;
+import androidx.annotation.Nullable;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.GestureDetector;
 import android.view.MotionEvent;
 import android.view.VelocityTracker;
 import android.view.View;
-import android.view.ViewGroup;
-import android.view.animation.TranslateAnimation;
 import android.widget.Scroller;
 import android.widget.Toast;
 

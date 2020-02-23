@@ -1,6 +1,6 @@
 package com.hfy.demo01.module.mvvm;
 
-import android.databinding.BindingConversion;
+import androidx.databinding.BindingConversion;
 
 import com.hfy.demo01.module.mvvm.bean.Man;
 

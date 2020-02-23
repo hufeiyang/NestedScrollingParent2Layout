@@ -1,9 +1,8 @@
 package com.hfy.demo01.module.mvvm.bean;
 
-import android.databinding.BaseObservable;
-import android.databinding.Bindable;
-import android.databinding.BindingAdapter;
-import android.widget.TextView;
+import androidx.databinding.BaseObservable;
+import androidx.databinding.Bindable;
+import androidx.databinding.BindingAdapter;
 
 
 /**

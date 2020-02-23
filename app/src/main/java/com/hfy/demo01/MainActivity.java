@@ -1,22 +1,25 @@
 package com.hfy.demo01;
 
+import android.app.IntentService;
 import android.content.Intent;
 import android.graphics.PixelFormat;
 import android.net.Uri;
+import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
+import android.os.HandlerThread;
 import android.os.Looper;
 import android.os.Message;
 import android.provider.Settings;
-import android.support.annotation.Nullable;
-import android.support.design.widget.TabLayout;
-import android.support.v4.app.Fragment;
-import android.support.v4.view.ViewPager;
-import android.support.v4.widget.DrawerLayout;
-import android.support.v7.app.ActionBarDrawerToggle;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
+import androidx.annotation.Nullable;
+import com.google.android.material.tabs.TabLayout;
+import androidx.fragment.app.Fragment;
+import androidx.viewpager.widget.ViewPager;
+import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.appcompat.app.ActionBarDrawerToggle;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.MenuItem;
@@ -35,6 +38,10 @@ import com.hfy.demo01.module.home.fragment.SecondFragment;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.ScheduledExecutorService;
+import java.util.concurrent.TimeUnit;
 
 import javax.inject.Inject;
 
@@ -97,6 +104,7 @@ public class MainActivity extends AppCompatActivity {
     private ActionBarDrawerToggle mActionBarDrawerToggle;
 
     private Handler mHandler;
+    private AsyncTask<Integer, Integer, String> task;
 
 
     @Override
@@ -123,6 +131,247 @@ public class MainActivity extends AppCompatActivity {
         testThreadLocal();
 
         testHandler();
+
+        testAsyncTask();
+
+        testHandlerThread();
+
+        testIntentService();
+
+        testThreadPoolExecutor();
+    }
+
+    private void testThreadPoolExecutor() {
+        Runnable runnable = new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    Log.i(TAG, "testThreadPoolExecutor: run begin");
+                    Thread.sleep(4000);
+                    Log.i(TAG, "testThreadPoolExecutor: run end");
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
+        };
+
+        ExecutorService fixedThreadPool = Executors.newFixedThreadPool(4);
+        fixedThreadPool.execute(runnable);
+
+        ExecutorService cachedThreadPool = Executors.newCachedThreadPool();
+        cachedThreadPool.execute(runnable);
+
+        ScheduledExecutorService scheduledThreadPool = Executors.newScheduledThreadPool(4);
+        scheduledThreadPool.execute(runnable);
+        //延迟2秒执行
+        scheduledThreadPool.schedule(runnable, 2, TimeUnit.SECONDS);
+        //延迟2秒执行，然后以每次 任务开始的时间计时， 1秒后，如果任务是结束的 就立刻执行下一次；如果没有结束，就等它结束后立即执行下一次。
+        scheduledThreadPool.scheduleAtFixedRate(runnable, 0, 1, TimeUnit.SECONDS);
+        //延迟3秒执行，然后以每次任务执行完后的时间计时， 2秒后，执行下一次~
+        scheduledThreadPool.scheduleWithFixedDelay(runnable,1,2,TimeUnit.SECONDS);
+
+        ExecutorService singleThreadExecutor = Executors.newSingleThreadExecutor();
+        singleThreadExecutor.execute(runnable);
+    }
+
+    private void testIntentService() {
+
+        Log.i(TAG, "testIntentService: task1");
+        Intent intent= new Intent(this, MyIntentService.class);
+        intent.putExtra("task_name","task1");
+        startService(intent);
+
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                Log.i(TAG, "testIntentService: task2");
+                intent.putExtra("task_name","task2");
+                startService(intent);
+            }
+        }, 3000);
+
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                Log.i(TAG, "testIntentService: task3");
+                intent.putExtra("task_name","task3");
+                startService(intent);
+            }
+        }, 6000);
+    }
+
+    public static class MyIntentService extends IntentService {
+
+        public MyIntentService() {
+            super("MyIntentServiceThread");
+        }
+
+        @Override
+        protected void onHandleIntent(Intent intent) {
+            Log.i(TAG, "MyIntentService onHandleIntent: begin."+intent.getStringExtra("task_name"));
+            try {
+                Thread.sleep(2000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            Log.i(TAG, "MyIntentService onHandleIntent: done."+intent.getStringExtra("task_name"));
+        }
+
+        @Override
+        public void onDestroy() {
+            Log.i(TAG, "MyIntentService onDestroy: ");
+            super.onDestroy();
+        }
+    }
+
+    private void testHandlerThread() {
+        HandlerThread handlerThread = new HandlerThread("HandlerThreadName");
+        handlerThread.start();
+        Handler handler = new Handler(handlerThread.getLooper()) {
+            @Override
+            public void handleMessage(Message msg) {
+                switch (msg.what) {
+                    case 1000:
+                        try {
+                            Thread.sleep(2000);
+                        } catch (InterruptedException e) {
+                            e.printStackTrace();
+                        }
+                        Log.i(TAG, "handleMessage: thread name="+Thread.currentThread().getName()+"，what="+msg.what);
+                        break;
+                    case 1001:
+                        try {
+                            Thread.sleep(1000);
+                        } catch (InterruptedException e) {
+                            e.printStackTrace();
+                        }
+                        Log.i(TAG, "handleMessage: thread name="+Thread.currentThread().getName()+"，what="+msg.what);
+                        break;
+                    default:
+                        break;
+                }
+            }
+        };
+
+        Log.i(TAG, "sendMessage thread name="+Thread.currentThread().getName());
+        handler.sendMessage(Message.obtain(handler, 1000));
+        handler.sendMessage(Message.obtain(handler, 1001));
+    }
+
+    private void testAsyncTask() {
+        //要在主线程实例化 并execute。
+        //覆写的这几个方法不可以直接调用
+
+        task = new AsyncTask<Integer, Integer, String>() {
+
+            @Override
+            protected void onPreExecute() {
+                super.onPreExecute();
+                //主线程执行，在异步任务之前
+                Log.i(TAG, "testAsyncTask onPreExecute: ");
+            }
+
+            @Override
+            protected String doInBackground(Integer... integers) {
+                Log.i(TAG, "testAsyncTask doInBackground: ");
+                //任务在 线程池中执行睡觉
+                try {
+                    Thread.sleep(1000);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+                //发出进度
+                publishProgress(50);
+                try {
+                    Thread.sleep(1000);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+                //再发出进度
+                publishProgress(100);
+
+                return "我是结果。参数是" + integers[0];
+            }
+
+            @Override
+            protected void onPostExecute(String s) {
+                super.onPostExecute(s);
+                //在主线程执行，在异步任务执行完之后
+                Log.i(TAG, "testAsyncTask onPostExecute: " + s);
+            }
+
+            @Override
+            protected void onProgressUpdate(Integer... values) {
+                super.onProgressUpdate(values);
+                //执行在主线程，调用publishProgress()后就会执行
+                Log.i(TAG, "testAsyncTask onProgressUpdate: 进度：" + values[0] + "%");
+                Toast.makeText(MainActivity.this, "进度：" + values[0] + "%", Toast.LENGTH_SHORT).show();
+            }
+
+            @Override
+            protected void onCancelled() {
+                //取消,调用task.call(true)会回调
+                super.onCancelled();
+            }
+        };
+
+
+        //要在主线程执行execute，且只能执行一次
+        task.execute(100);
+
+        new AsyncTask<Void, Void, Void>() {
+            @Override
+            protected Void doInBackground(Void... voids) {
+                Log.i(TAG, "task1 SERIAL_EXECUTOR doInBackground: ");
+                try {
+                    Thread.sleep(2000);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+                return null;
+            }
+        }.execute();
+
+        new AsyncTask<Void, Void, Void>() {
+            @Override
+            protected Void doInBackground(Void... voids) {
+                Log.i(TAG, "task2 SERIAL_EXECUTOR doInBackground: ");
+                try {
+                    Thread.sleep(2000);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+                return null;
+            }
+        }.execute();
+
+
+        new AsyncTask<Void, Void, Void>() {
+            @Override
+            protected Void doInBackground(Void... voids) {
+                Log.i(TAG, "task1 THREAD_POOL_EXECUTOR doInBackground: ");
+                try {
+                    Thread.sleep(2000);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+                return null;
+            }
+        }.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
+
+        new AsyncTask<Void, Void, Void>() {
+            @Override
+            protected Void doInBackground(Void... voids) {
+                Log.i(TAG, "task2 THREAD_POOL_EXECUTOR doInBackground: ");
+                try {
+                    Thread.sleep(2000);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+                return null;
+            }
+        }.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
+
     }
 
 
@@ -150,7 +399,7 @@ public class MainActivity extends AppCompatActivity {
                 mHandler = new Handler(new Handler.Callback() {
                     @Override
                     public boolean handleMessage(Message msg) {
-                        Log.i(TAG, "child thread 1, handleMessage: what="+msg.what);
+                        Log.i(TAG, "child thread 1, handleMessage: what=" + msg.what);
                         return false;
                     }
                 });
@@ -206,16 +455,16 @@ public class MainActivity extends AppCompatActivity {
         ThreadLocal<Integer> integerThreadLocal = new ThreadLocal<>();
         booleanThreadLocal.set(true);
         integerThreadLocal.set(0);
-        Log.i(TAG, "testThreadLocal: main thread, boolean= "+booleanThreadLocal.get());
-        Log.i(TAG, "testThreadLocal: main thread, int = "+integerThreadLocal.get());
+        Log.i(TAG, "testThreadLocal: main thread, boolean= " + booleanThreadLocal.get());
+        Log.i(TAG, "testThreadLocal: main thread, int = " + integerThreadLocal.get());
 
         new Thread(new Runnable() {
             @Override
             public void run() {
                 booleanThreadLocal.set(false);
                 integerThreadLocal.set(1);
-                Log.i(TAG, "testThreadLocal: a thread, boolean="+booleanThreadLocal.get());
-                Log.i(TAG, "testThreadLocal: a thread, int = "+integerThreadLocal.get());
+                Log.i(TAG, "testThreadLocal: a thread, boolean=" + booleanThreadLocal.get());
+                Log.i(TAG, "testThreadLocal: a thread, int = " + integerThreadLocal.get());
 
             }
         }).start();
@@ -225,8 +474,8 @@ public class MainActivity extends AppCompatActivity {
             public void run() {
                 booleanThreadLocal.set(null);
                 integerThreadLocal.set(2);
-                Log.i(TAG, "testThreadLocal: b thread, boolean="+booleanThreadLocal.get());
-                Log.i(TAG, "testThreadLocal: b thread, int = "+integerThreadLocal.get());
+                Log.i(TAG, "testThreadLocal: b thread, boolean=" + booleanThreadLocal.get());
+                Log.i(TAG, "testThreadLocal: b thread, int = " + integerThreadLocal.get());
 
             }
         }).start();
@@ -359,17 +608,17 @@ public class MainActivity extends AppCompatActivity {
         //6.0以上需要用户手动打开权限
         // (SYSTEM_ALERT_WINDOW and WRITE_SETTINGS, 这两个权限比较特殊，
         // 不能通过代码申请方式获取，必须得用户打开软件设置页手动打开，才能授权。Manifest申请该权限是无效的。)
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M){
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             if (!Settings.canDrawOverlays(this)) {
                 //打开设置页，让用户打开设置
                 Toast.makeText(this, "can not DrawOverlays", Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(Settings.ACTION_MANAGE_OVERLAY_PERMISSION, Uri.parse("package:" + MainActivity.this.getPackageName()));
                 startActivityForResult(intent, OVERLAY_PERMISSION_REQ_CODE);
-            }else {
+            } else {
                 //已经打开了权限
                 handleAddWindow();
             }
-        }else {
+        } else {
             //6.0以下直接 Manifest申请该权限 就行。
             handleAddWindow();
         }
@@ -390,7 +639,7 @@ public class MainActivity extends AppCompatActivity {
         new Thread(new Runnable() {
             @Override
             public void run() {
-
+                //因为添加window是IPC操作，回调回来时，需要handler切换线程，所以需要Looper
                 Looper.prepare();
 
                 addWindow(button);
@@ -400,8 +649,12 @@ public class MainActivity extends AppCompatActivity {
                     public void run() {
                         button.setText("文字变了！！！");
                     }
-                },3000);
+                }, 3000);
 
+                //这里也是可以showToast
+                Toast.makeText(MainActivity.this, "子线程showToast", Toast.LENGTH_SHORT).show();
+
+                //开启looper，循环取消息。
                 Looper.loop();
             }
         }).start();
@@ -423,7 +676,7 @@ public class MainActivity extends AppCompatActivity {
                 PixelFormat.TRANSPARENT
         );
         // flag 设置 Window 属性
-        layoutParams.flags= WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE | WindowManager.LayoutParams.FLAG_NOT_TOUCH_MODAL;
+        layoutParams.flags = WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE | WindowManager.LayoutParams.FLAG_NOT_TOUCH_MODAL;
         // type 设置 Window 类别（层级）
         layoutParams.type = WindowManager.LayoutParams.TYPE_SYSTEM_OVERLAY;
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
@@ -451,17 +704,18 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onDestroy() {
         super.onDestroy();
+
     }
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        switch (requestCode){
+        switch (requestCode) {
             case OVERLAY_PERMISSION_REQ_CODE:
                 if (Settings.canDrawOverlays(this)) {
                     //打开了权限
                     handleAddWindow();
-                }else {
+                } else {
                     Toast.makeText(this, "can not DrawOverlays", Toast.LENGTH_SHORT).show();
                 }
                 break;

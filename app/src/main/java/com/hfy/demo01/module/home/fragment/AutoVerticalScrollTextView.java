@@ -7,7 +7,7 @@ import android.graphics.drawable.Drawable;
 import android.os.Handler;
 import android.os.Message;
 import android.os.SystemClock;
-import android.support.v7.content.res.AppCompatResources;
+import androidx.appcompat.content.res.AppCompatResources;
 import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.view.Gravity;

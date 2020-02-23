@@ -1,24 +1,27 @@
 package com.hfy.demo01.module.home.touchevent.fragment;
 
 import android.content.Context;
-import android.support.annotation.NonNull;
-import android.support.v7.widget.RecyclerView;
-import android.util.TypedValue;
+import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.RecyclerView;
+
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.hfy.demo01.R;
+import com.hfy.simpleimageloader.ImageLoader;
 
+import java.util.ArrayList;
 import java.util.List;
 
 class NestedScrollTestRecyclerViewAdapter extends RecyclerView.Adapter<NestedScrollTestRecyclerViewAdapter.ViewHoder> {
 
     private final Context context;
-    private final List<String> list;
+    private final ArrayList<DataBean> list;
 
-    public NestedScrollTestRecyclerViewAdapter(Context context, List<String> list) {
+    public NestedScrollTestRecyclerViewAdapter(Context context, ArrayList<DataBean> list) {
         this.context = context;
         this.list = list;
     }
@@ -32,7 +35,9 @@ class NestedScrollTestRecyclerViewAdapter extends RecyclerView.Adapter<NestedScr
 
     @Override
     public void onBindViewHolder(@NonNull ViewHoder viewHoder, int i) {
-        viewHoder.textView.setText(list.get(i));
+        DataBean dataBean = list.get(i);
+        viewHoder.textView.setText(dataBean.text);
+        ImageLoader.with(context).loadBitmapAsync(dataBean.url,viewHoder.imageView);
     }
 
     @Override
@@ -43,10 +48,12 @@ class NestedScrollTestRecyclerViewAdapter extends RecyclerView.Adapter<NestedScr
     public class ViewHoder extends RecyclerView.ViewHolder {
 
         private final TextView textView;
+        private final ImageView imageView;
 
         public ViewHoder(@NonNull View itemView) {
             super(itemView);
             textView = itemView.findViewById(R.id.textView);
+            imageView = itemView.findViewById(R.id.imageView);
         }
     }
 }

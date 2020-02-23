@@ -6,12 +6,12 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.v4.app.ActivityCompat;
-import android.support.v4.app.Fragment;
-import android.support.v4.content.ContextCompat;
-import android.support.v7.app.AlertDialog;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.core.app.ActivityCompat;
+import androidx.fragment.app.Fragment;
+import androidx.core.content.ContextCompat;
+import androidx.appcompat.app.AlertDialog;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -21,12 +21,14 @@ import android.widget.Toast;
 
 import com.hfy.demo01.R;
 import com.hfy.demo01.module.home.animation.AnimationTestActivity;
+import com.hfy.demo01.module.home.bitmap.BitmapTestActivity;
 import com.hfy.demo01.module.home.designsupportlibrarytest.MaterialDesignWidgetActivity;
 import com.hfy.demo01.module.home.designsupportlibrarytest.NotificationActivity;
 import com.hfy.demo01.module.home.designsupportlibrarytest.ViewEventTestActivity;
 import com.hfy.demo01.module.home.leaktest.LeakTestActivity;
 import com.hfy.demo01.module.home.touchevent.NestedScrollTestActivity;
 import com.hfy.demo01.module.mvp.view.MvpActivity;
+import com.hfy.simpleimageloader.ImageLoader;
 import com.pixplicity.sharp.Sharp;
 
 import java.util.ArrayList;
@@ -68,6 +70,9 @@ public class FirstFragment extends Fragment {
     @BindView(R.id.btn_animation_test)
     Button btnTestAnimation;
 
+    @BindView(R.id.btn_bitmap_test)
+    Button btnTestBitmap;
+
     private Unbinder mUnbind;
     private int tempProgress = 0;
 
@@ -88,7 +93,7 @@ public class FirstFragment extends Fragment {
         super.onResume();
 
         //Sharp 加载SVG文件
-        Sharp.loadResource(getResources(), R.raw.text).into(mImageView);
+//        Sharp.loadResource(getResources(), R.raw.text).into(mImageView);
 
         //glide-svg 库里面的方法， 清晰
 //        RequestBuilder<PictureDrawable> requestBuilder = GlideApp.with(this)
@@ -119,6 +124,10 @@ public class FirstFragment extends Fragment {
 //                .load(Uri.parse("http://www.webhek.com/wordpress/wp-content/uploads/2014/05/kiwi.svg"))
 //                .into(cardHolder.iv_card);
 
+        String url = "http://a1.att.hudong.com/05/00/01300000194285122188000535877.jpg";
+        ViewGroup.LayoutParams layoutParams = mImageView.getLayoutParams();
+        ImageLoader.with(this.getContext()).loadBitmapAsync(url,mImageView, layoutParams.width, layoutParams.height);
+
         ArrayList<String> scrollMessageList = new ArrayList<>();
         scrollMessageList.add("hehe撒打发斯蒂芬");
         scrollMessageList.add("aaa沙发上发生的发放");
@@ -138,7 +147,8 @@ public class FirstFragment extends Fragment {
             R.id.btn_test_traditional_nested_scroll,
             R.id.btn_test_nested_scrolling,
             R.id.btn_test_leak,
-            R.id.btn_animation_test
+            R.id.btn_animation_test,
+            R.id.btn_bitmap_test
     })
     public void onClick(View view) {
         switch (view.getId()) {
@@ -169,17 +179,15 @@ public class FirstFragment extends Fragment {
                 break;
             case R.id.btn_test_nested_scrolling:
                 NestedScrollTestActivity.launch(getActivity(), true);
-
                 break;
-
             case R.id.btn_test_leak:
                 LeakTestActivity.launch(getActivity());
-
                 break;
-
             case R.id.btn_animation_test:
                 AnimationTestActivity.launch(getActivity());
-
+                break;
+            case R.id.btn_bitmap_test:
+                BitmapTestActivity.launch(getActivity());
                 break;
             default:
                 break;

@@ -1,8 +1,8 @@
 package com.hfy.demo01.module.home.designsupportlibrarytest;
 
 import android.content.Context;
-import android.support.annotation.NonNull;
-import android.support.design.widget.CoordinatorLayout;
+import androidx.annotation.NonNull;
+import androidx.coordinatorlayout.widget.CoordinatorLayout;
 import android.util.AttributeSet;
 import android.util.DisplayMetrics;
 import android.view.View;

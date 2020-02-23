@@ -2,9 +2,9 @@ package com.hfy.demo01.module.home.designsupportlibrarytest;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v4.app.FragmentActivity;
-import android.support.v4.view.ViewConfigurationCompat;
-import android.support.v7.app.AppCompatActivity;
+import androidx.fragment.app.FragmentActivity;
+import androidx.core.view.ViewConfigurationCompat;
+import androidx.appcompat.app.AppCompatActivity;
 import android.util.Log;
 import android.view.ViewConfiguration;
 

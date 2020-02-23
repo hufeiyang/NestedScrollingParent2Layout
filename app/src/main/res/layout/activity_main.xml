@@ -8,7 +8,7 @@
     tools:context=".MainActivity">
 
     <!--&lt;!&ndash;侧滑效果&ndash;&gt;-->
-    <android.support.v4.widget.DrawerLayout
+    <androidx.drawerlayout.widget.DrawerLayout
         android:id="@+id/drawer_layout"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -20,7 +20,7 @@
             android:orientation="vertical">
 
             <!--用AppBarLayout把toolbar、TabLayout组合为一个整体，设置elevation有立体效果-->
-            <android.support.design.widget.AppBarLayout
+            <com.google.android.material.appbar.AppBarLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:layout_scrollFlags="scroll|enterAlways"
@@ -30,7 +30,7 @@
                 <include layout="@layout/mytoolbar" />
 
                 <!--TabLayout使用tabMode="scrollable"设置可以滑动-->
-                <android.support.design.widget.TabLayout
+                <com.google.android.material.tabs.TabLayout
                     android:id="@+id/tl_home_page"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -40,9 +40,9 @@
                     app:tabSelectedTextColor="@color/colorAccent"
                     app:tabTextColor="@android:color/black"/>
 
-            </android.support.design.widget.AppBarLayout>
+            </com.google.android.material.appbar.AppBarLayout>
 
-            <android.support.v4.view.ViewPager
+            <androidx.viewpager.widget.ViewPager
                 android:id="@+id/vp_home_page"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -77,6 +77,6 @@
             <!--app:headerLayout="@layout/navigation_header"-->
             <!--app:menu="@menu/navigation_menu" />-->
 
-    </android.support.v4.widget.DrawerLayout>
+    </androidx.drawerlayout.widget.DrawerLayout>
 
 </LinearLayout>
