@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layoutAnimation xmlns:android="http://schemas.android.com/apk/res/android"
+    android:animation="@anim/enter_from_left_for_child_of_group"
+    android:animationOrder="normal"
+    android:delay="0.8">
+    <!--delay是指：每个child延迟（在android:animation中指定的动画时间）0.8倍后播放动画
+        如果android:animation中的动画时间是100ms，那么每个child都会延迟800ms后播放动画。
+        如果不设置delay，那么所有child同时执行动画。-->
+</layoutAnimation>

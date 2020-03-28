@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#cccccc"
     tools:context=".module.home.animation.AnimationTestActivity">
 
 
@@ -41,22 +42,71 @@
         android:id="@+id/textView4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="属性动画：代码 + xml"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:text="View动画：代码 Rotate3dAnimation"
+        app:layout_constraintBottom_toTopOf="@id/tv_frame_animation"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/textView3" />
 
+    <TextView
+        android:id="@+id/tv_frame_animation"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:gravity="center"
+        android:text="帧动画背景"
+        app:layout_constraintBottom_toTopOf="@id/textView6"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/textView4" />
+
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="属性动画：代码 + xml"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@id/ll_layout_animation"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_frame_animation" />
+
+    <LinearLayout
+        android:id="@+id/ll_layout_animation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layoutAnimation="@anim/layout_animation"
+        app:layout_constraintBottom_toTopOf="@id/button_animator_test"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/textView6">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#ff0000"
+            android:text="Viewgroup的"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#ff0000"
+            android:text=" 子view "
+            android:background="@color/colorPrimary"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#ff0000"
+            android:text="入场动画"/>
+    </LinearLayout>
+
     <Button
         android:id="@+id/button_animator_test"
-        android:layout_width="100dp"
+        android:layout_width="180dp"
         android:layout_height="wrap_content"
-        android:text="添加view"
+        android:text="任意属性动画-宽度拉长"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/textView4"/>
+        app:layout_constraintTop_toBottomOf="@id/textView6" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
