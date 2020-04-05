@@ -50,17 +50,10 @@
             android:textAllCaps="false"/>
 
         <Button
-            android:id="@+id/btn_test_traditional_nested_scroll"
+            android:id="@+id/btn_test_touch_event"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="传统分发机制下的嵌套滑动-外层scrollView"
-            android:textAllCaps="false"/>
-
-        <Button
-            android:id="@+id/btn_test_nested_scrolling"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="新的NestedScrilling机制-外层NestedScrollView"
+            android:text="事件分发—滑动冲突"
             android:textAllCaps="false"/>
 
         <Button

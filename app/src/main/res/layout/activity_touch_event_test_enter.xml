@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingTop="80dp"
+    tools:context=".module.home.touchevent.TouchEventTestEnterActivity">
+
+
+    <Button
+        android:id="@+id/btn_test_traditional_nested_scroll"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="传统分发机制下嵌套滑动：自定义Parent +ViewPager+RecyclerView"
+        android:textAllCaps="false"/>
+
+    <Button
+        android:id="@+id/btn_test_nested_scrolling"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="NestedScroll机制：NestedScrollingParent2Layout+ViewPager+RecyclerView"
+        android:textAllCaps="false"/>
+
+    <Button
+        android:id="@+id/btn_test_traditional_scroll_view_recycler_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="有滑动冲突：ScrollView+recyclerview"
+        android:textAllCaps="false"/>
+
+    <Button
+        android:id="@+id/btn_test_traditional_nested_scroll_view_recycler_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="使用NestedScrollView滑动没问题，但是会瞬间加载完item：NestedScrollView+recyclerview"
+        android:textAllCaps="false"/>
+
+    <Button
+        android:id="@+id/btn_test_nested_scroll_parent2_view_recycler_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="使用NestedScrollParent2Layout：NestedScrollView+recyclerview"
+        android:textAllCaps="false"/>
+
+
+    <Button
+        android:id="@+id/btn_test_recycler_view_and_recycler_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="滑动冲突：recyclerview 套viewPager+recyclerview"
+        android:textAllCaps="false"/>
+
+    <Button
+        android:id="@+id/btn_test_nested_scroll_recycler_view_and_recycler_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="使用NestedScrollParent2Layout，解决嵌套滑动：recyclerview 套viewPager+recyclerview"
+        android:textAllCaps="false"/>
+
+</LinearLayout>

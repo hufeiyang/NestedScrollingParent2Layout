@@ -78,7 +78,13 @@ dependencies {
     implementation 'org.greenrobot:eventbus:3.0.0'
     //disklrucache
     implementation 'com.jakewharton:disklrucache:2.0.2'
+
+    //我的简单图片加载库
     implementation project(path: ':simpleimageloader')
+
+    //BRVAH
+    implementation 'com.github.CymChad:BaseRecyclerViewAdapterHelper:3.0.2'
+
 
     //titlebar
 //    implementation 'com.wuhenzhizao:titlebar:1.1.4'

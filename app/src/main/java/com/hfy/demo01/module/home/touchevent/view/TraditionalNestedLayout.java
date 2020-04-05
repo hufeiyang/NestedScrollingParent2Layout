@@ -1,8 +1,10 @@
 package com.hfy.demo01.module.home.touchevent.view;
 
 import android.content.Context;
+
 import androidx.annotation.Nullable;
 import androidx.viewpager.widget.ViewPager;
+
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.MotionEvent;
@@ -13,7 +15,15 @@ import android.widget.LinearLayout;
 
 import com.hfy.demo01.R;
 
-public class TraditionalNestedLayout extends LinearLayout{
+/**
+ *
+ * 可滚动的 LinearLayout
+ *
+ * 传统事件冲突的处理方法：在onInterceptTouchEvent中根据滑动情况进行事件拦截
+ *
+ * @author hufeiyang
+ */
+public class TraditionalNestedLayout extends LinearLayout {
 
     private View mHeadView;
     private View mNavView;
@@ -58,6 +68,8 @@ public class TraditionalNestedLayout extends LinearLayout{
                     }
                 }
                 break;
+            default:
+                break;
         }
         return super.onInterceptTouchEvent(event);//不拦截事件，把事件让给子控件。
 
@@ -75,10 +87,13 @@ public class TraditionalNestedLayout extends LinearLayout{
                 break;
             case MotionEvent.ACTION_MOVE:
                 int dy = mLastY - y;
+                //使用scrollBy方法 让 所有子view 随手指滚动
                 if (Math.abs(dy) > ViewConfiguration.getTouchSlop()) {
                     scrollBy(0, dy);
                 }
                 mLastY = y;
+                break;
+            default:
                 break;
         }
         return super.onTouchEvent(event);
@@ -120,7 +135,7 @@ public class TraditionalNestedLayout extends LinearLayout{
     @Override
     protected void onFinishInflate() {
         super.onFinishInflate();
-        mHeadView = findViewById(R.id.iv_head);
+        mHeadView = findViewById(R.id.tv_head);
         mNavView = findViewById(R.id.tab_layout);
         mViewPager = findViewById(R.id.view_pager);
         if (!(mViewPager instanceof ViewPager)) {

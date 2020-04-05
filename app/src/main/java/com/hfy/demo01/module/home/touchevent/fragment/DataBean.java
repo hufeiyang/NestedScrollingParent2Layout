@@ -1,6 +1,9 @@
 package com.hfy.demo01.module.home.touchevent.fragment;
 
-class DataBean {
+import com.chad.library.adapter.base.entity.MultiItemEntity;
+import com.hfy.demo01.module.home.touchevent.adapter.RecyclerNestAdapter;
+
+public class DataBean implements MultiItemEntity {
 
     public  String text;
     public   String url;
@@ -8,5 +11,10 @@ class DataBean {
     public DataBean(String text, String url) {
         this.text = text;
         this.url = url;
+    }
+
+    @Override
+    public int getItemType() {
+        return RecyclerNestAdapter.NORMAL_TYPE;
     }
 }

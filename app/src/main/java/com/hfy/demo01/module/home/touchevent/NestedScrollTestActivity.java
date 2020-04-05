@@ -21,6 +21,10 @@ import butterknife.ButterKnife;
 /**
  * 传统事件分发机制下的冲突处理--内外都是 竖向滑动的解决 及 缺陷点。
  *
+ * 可滑动的外层 + header + tab +viewPager +recyclerView
+ *
+ * 可滑动的外层滑动冲突解决：1、传统方法，不连贯，2、使用NestedScrollingParent2Layout，OK
+ *
  * https://juejin.im/post/5d3e639e51882508dc163606#heading-13
  * https://www.jianshu.com/p/bc6d703e7ca9
  */
@@ -31,7 +35,8 @@ public class NestedScrollTestActivity extends AppCompatActivity {
     @BindView(R.id.view_pager)
     ViewPager viewPager;
 
-    private String[] titles = {"头条", "新闻", "娱乐"};
+//    private String[] titles = {"头条", "新闻", "娱乐"};
+    private String[] titles = {"头条"};
 
     /**
      * 首页fragments
@@ -61,8 +66,8 @@ public class NestedScrollTestActivity extends AppCompatActivity {
 
     private void initView() {
         fragments.add(new NestedScrollTestFragment());
-        fragments.add(new NestedScrollTestFragment());
-        fragments.add(new NestedScrollTestFragment());
+//        fragments.add(new NestedScrollTestFragment());
+//        fragments.add(new NestedScrollTestFragment());
         HomePagerAdapter adapter = new HomePagerAdapter(getSupportFragmentManager(), titles, fragments);
         viewPager.setAdapter(adapter);
         tabLayout.setupWithViewPager(viewPager);

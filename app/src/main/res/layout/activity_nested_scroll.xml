@@ -1,18 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.core.widget.NestedScrollView
+<com.hfy.demo01.module.home.touchevent.view.NestedScrollingParent2LayoutImpl1
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
+    <!--<LinearLayout-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="match_parent"-->
+        <!--android:orientation="vertical">-->
         <TextView
+            android:id="@+id/tv_head"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="banner"
-            android:textSize="40dp"
+            android:textSize="60dp"
             android:gravity="center"
             android:background="@color/colorAccent"/>
 
@@ -26,10 +27,10 @@
         <androidx.viewpager.widget.ViewPager
             android:id="@+id/view_pager"
             android:layout_width="match_parent"
-            android:layout_height="800dp"
+            android:layout_height="match_parent"
             android:background="#77880099"/>
 
-    </LinearLayout>
+    <!--</LinearLayout>-->
 
 
-</androidx.core.widget.NestedScrollView>
+</com.hfy.demo01.module.home.touchevent.view.NestedScrollingParent2LayoutImpl1>

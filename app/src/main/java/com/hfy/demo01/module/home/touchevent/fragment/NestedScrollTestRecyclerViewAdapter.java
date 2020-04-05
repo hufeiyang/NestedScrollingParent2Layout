@@ -4,6 +4,7 @@ import android.content.Context;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,8 +17,8 @@ import com.hfy.simpleimageloader.ImageLoader;
 import java.util.ArrayList;
 import java.util.List;
 
-class NestedScrollTestRecyclerViewAdapter extends RecyclerView.Adapter<NestedScrollTestRecyclerViewAdapter.ViewHoder> {
-
+public class NestedScrollTestRecyclerViewAdapter extends RecyclerView.Adapter<NestedScrollTestRecyclerViewAdapter.ViewHoder> {
+    public static final String TAG = "hfy+NestedScrollTest";
     private final Context context;
     private final ArrayList<DataBean> list;
 
@@ -30,7 +31,14 @@ class NestedScrollTestRecyclerViewAdapter extends RecyclerView.Adapter<NestedScr
     @Override
     public ViewHoder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
         View itemView = LayoutInflater.from(context).inflate(R.layout.item_nested_scroll_test, viewGroup, false);
+        Log.i(TAG, "onCreateViewHolder: ");
         return new ViewHoder(itemView);
+    }
+
+    @Override
+    public void onViewAttachedToWindow(@NonNull ViewHoder holder) {
+        super.onViewAttachedToWindow(holder);
+        Log.i(TAG, "onViewAttachedToWindow: "+holder.getAdapterPosition());
     }
 
     @Override

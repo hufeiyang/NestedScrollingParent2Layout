@@ -3,14 +3,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.hfy.demo01">
 
-    <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
-
-    <uses-permission android:name="android.permission.CALL_PHONE" />
-    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
-
-
     <application
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -18,7 +10,10 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".module.home.bitmap.BitmapTestActivity"></activity>
+        <activity android:name=".module.home.touchevent.RecyclerViewAndRecyclerViewActivity"></activity>
+        <activity android:name=".module.home.touchevent.TouchEventTestEnterActivity" />
+        <activity android:name=".module.home.touchevent.ScrollViewAndRecyclerViewActivity" />
+        <activity android:name=".module.home.bitmap.BitmapTestActivity" />
         <activity android:name=".module.home.animation.AnimationTestActivity" />
         <activity android:name=".module.home.leaktest.LeakTestActivity" />
         <activity android:name=".module.home.touchevent.NestedScrollTestActivity" />
@@ -46,7 +41,13 @@
                 <action android:name="com.google.firebase.MESSAGING_EVENT" />
             </intent-filter>
         </service>
-        <service android:name=".MainActivity$MyIntentService"></service>
+        <service android:name=".MainActivity$MyIntentService" />
     </application>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+
+    <uses-permission android:name="android.permission.INTERNET" />
 
 </manifest>

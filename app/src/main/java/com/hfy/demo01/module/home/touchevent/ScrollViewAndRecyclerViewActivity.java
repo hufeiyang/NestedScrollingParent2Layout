@@ -1,90 +1,54 @@
-package com.hfy.demo01.module.home.touchevent.fragment;
+package com.hfy.demo01.module.home.touchevent;
 
+import android.content.Intent;
 import android.os.Bundle;
 
-import androidx.fragment.app.Fragment;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-
 import com.hfy.demo01.R;
-import com.hfy.demo01.module.home.touchevent.view.NestedScrollingParent2LayoutImpl3;
+import com.hfy.demo01.module.home.touchevent.fragment.DataBean;
+import com.hfy.demo01.module.home.touchevent.fragment.NestedScrollTestRecyclerViewAdapter;
 
 import java.util.ArrayList;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import butterknife.Unbinder;
 
-public class NestedScrollTestFragment extends Fragment {
+/**
+ * ScrollView+RecyclerView,滑动冲突解决方案对比
+ * @author hufeiyang
+ */
+public class ScrollViewAndRecyclerViewActivity extends AppCompatActivity {
 
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
 
     @BindView(R.id.recyclerView)
     RecyclerView recyclerView;
 
-    Unbinder unbinder;
-
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
-
-    private NestedScrollingParent2LayoutImpl3 mNestedScrollingParent2Layout;
-    private boolean mDoLazyLoadLater;
-
-    public NestedScrollTestFragment() {
-        // Required empty public constructor
-    }
-
-    public static NestedScrollTestFragment newInstance() {
-        NestedScrollTestFragment fragment = new NestedScrollTestFragment();
-        return fragment;
-    }
-
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment NestedScrollTestFragment.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static NestedScrollTestFragment newInstance(String param1, String param2) {
-        NestedScrollTestFragment fragment = new NestedScrollTestFragment();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
+    public static void launch(FragmentActivity activity, int type) {
+        Intent intent = new Intent(activity, ScrollViewAndRecyclerViewActivity.class);
+        intent.putExtra("type", type);
+        activity.startActivity(intent);
     }
 
     @Override
-    public void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
+        Intent intent = getIntent();
+
+
+        int type = intent.getIntExtra("type", 0);
+        if (type ==1) {
+            setContentView(R.layout.activity_scroll_view_and_recycler_view);
+        } else if (type ==2){
+            setContentView(R.layout.activity_nested_scroll_view_and_recycler_view);
+        }else if (type ==3){
+            setContentView(R.layout.activity_scroll_view_parent2_view_and_recycler_view);
         }
-    }
 
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_nested_scroll_test, container, false);
-        unbinder = ButterKnife.bind(this, view);
-
-        initView();
-
-        return view;
-    }
-
-    private void initView() {
+        ButterKnife.bind(this);
 
         ArrayList<DataBean> dataBeans = new ArrayList<>();
         dataBeans.add(new DataBean(1 + "TextView", "https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=2650138538,1827686917&fm=15&gp=0.jpg"));
@@ -105,49 +69,8 @@ public class NestedScrollTestFragment extends Fragment {
         dataBeans.add(new DataBean(14 + "TextView", "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1582440395992&di=eeee6904d7a12ea9b0a9a7bd004ef5d7&imgtype=0&src=http%3A%2F%2Fimg.pconline.com.cn%2Fimages%2Fupload%2Fupc%2Ftx%2Fitbbs%2F1510%2F28%2Fc15%2F14555696_1446001070504_mthumb.jpg"));
         dataBeans.add(new DataBean(15 + "TextView", "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1582440395992&di=5043a645040c6b3d3cdc9116e50ef5ab&imgtype=0&src=http%3A%2F%2Fi0.sinaimg.cn%2Fty%2F2014%2F1204%2FU11648P6DT20141204190014.jpg"));
 
-        recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
-        recyclerView.setAdapter(new NestedScrollTestRecyclerViewAdapter(getContext(), dataBeans));
 
-    }
-
-    /**
-     * 这个方法仅仅工作在FragmentPagerAdapter的场景中。（普通的activity中的一个fragment 不会调用。）
-     *
-     * @param visibleToUser
-     */
-    @Override
-    public void setUserVisibleHint(boolean visibleToUser) {
-        super.setUserVisibleHint(visibleToUser);
-
-        if (visibleToUser) {
-            if (getView() != null) {
-                if (mNestedScrollingParent2Layout != null) {
-                    mNestedScrollingParent2Layout.setChildRecyclerView(recyclerView);
-                }
-            } else {
-                //如果当前 view 还没有准备好，那么需要延迟加载，用一个变量表示，用于后面 view 处理好后(onStart())，再去加载
-                mDoLazyLoadLater = true;
-            }
-        }
-    }
-
-    @Override
-    public void onStart() {
-        super.onStart();
-        if (mDoLazyLoadLater) {
-            if (mNestedScrollingParent2Layout != null) {
-                mNestedScrollingParent2Layout.setChildRecyclerView(recyclerView);
-            }
-        }
-    }
-
-    @Override
-    public void onDestroyView() {
-        super.onDestroyView();
-        unbinder.unbind();
-    }
-
-    public void setNestedParentLayout(NestedScrollingParent2LayoutImpl3 nestedScrollingParent2Layout) {
-        mNestedScrollingParent2Layout = nestedScrollingParent2Layout;
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        recyclerView.setAdapter(new NestedScrollTestRecyclerViewAdapter(this, dataBeans));
     }
 }

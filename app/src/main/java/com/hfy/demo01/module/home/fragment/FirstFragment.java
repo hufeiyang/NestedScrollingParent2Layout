@@ -27,6 +27,7 @@ import com.hfy.demo01.module.home.designsupportlibrarytest.NotificationActivity;
 import com.hfy.demo01.module.home.designsupportlibrarytest.ViewEventTestActivity;
 import com.hfy.demo01.module.home.leaktest.LeakTestActivity;
 import com.hfy.demo01.module.home.touchevent.NestedScrollTestActivity;
+import com.hfy.demo01.module.home.touchevent.TouchEventTestEnterActivity;
 import com.hfy.demo01.module.mvp.view.MvpActivity;
 import com.hfy.simpleimageloader.ImageLoader;
 import com.pixplicity.sharp.Sharp;
@@ -58,11 +59,6 @@ public class FirstFragment extends Fragment {
     @BindView(R.id.autoSwitchTextView)
     AutoSwitchTextView autoSwitchTextView;
 
-    @BindView(R.id.btn_test_traditional_nested_scroll)
-    Button btnTestTraditionalNestedScroll;
-
-    @BindView(R.id.btn_test_nested_scrolling)
-    Button btnTestNestedScrolling;
 
     @BindView(R.id.btn_test_leak)
     Button btnTestLeak;
@@ -144,8 +140,7 @@ public class FirstFragment extends Fragment {
             R.id.btn_go_to_material_design_activity,
             R.id.btn_go_to_view_test_activity,
             R.id.btn_go_to_SwitchTextView,
-            R.id.btn_test_traditional_nested_scroll,
-            R.id.btn_test_nested_scrolling,
+            R.id.btn_test_touch_event,
             R.id.btn_test_leak,
             R.id.btn_animation_test,
             R.id.btn_bitmap_test
@@ -174,11 +169,8 @@ public class FirstFragment extends Fragment {
                 scrollMessageList.add("hjjk阿斯蒂芬");
                 autoSwitchTextView.setData(scrollMessageList);
                 break;
-            case R.id.btn_test_traditional_nested_scroll:
-                NestedScrollTestActivity.launch(getActivity(), false);
-                break;
-            case R.id.btn_test_nested_scrolling:
-                NestedScrollTestActivity.launch(getActivity(), true);
+            case R.id.btn_test_touch_event:
+                TouchEventTestEnterActivity.launch(getActivity());
                 break;
             case R.id.btn_test_leak:
                 LeakTestActivity.launch(getActivity());
