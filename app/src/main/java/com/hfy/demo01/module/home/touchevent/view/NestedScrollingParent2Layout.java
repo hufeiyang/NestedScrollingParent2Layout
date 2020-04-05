@@ -11,8 +11,6 @@ import androidx.core.view.NestedScrollingParent2;
 import androidx.core.view.NestedScrollingParentHelper;
 
 /**
- * Author:  andy.xwt
- * Date:    2019-06-28 00:13
  * Description:  通用 滑动嵌套处理布局，用于处理含有{@link androidx.recyclerview.widget.RecyclerView}的嵌套套滑动
  */
 public class NestedScrollingParent2Layout extends LinearLayout implements NestedScrollingParent2 {

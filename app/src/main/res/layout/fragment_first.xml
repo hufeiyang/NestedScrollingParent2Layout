@@ -53,8 +53,8 @@
             android:id="@+id/btn_test_touch_event"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="事件分发—滑动冲突"
-            android:textAllCaps="false"/>
+            android:text="事件分发、滑动冲突、嵌套滑动"
+            android:textAllCaps="false" />
 
         <Button
             android:id="@+id/btn_test_leak"

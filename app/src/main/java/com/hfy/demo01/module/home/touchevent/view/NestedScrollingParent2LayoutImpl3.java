@@ -15,7 +15,6 @@ import androidx.recyclerview.widget.RecyclerView;
  * 处理RecyclerView 套viewPager， viewPager内的fragment中 也有RecyclerView，处理外层、内层 RecyclerView的嵌套滑动问题
  * 类似淘宝、京东首页
  *
- * @author hufeiyang
  */
 public class NestedScrollingParent2LayoutImpl3 extends NestedScrollingParent2Layout {
 

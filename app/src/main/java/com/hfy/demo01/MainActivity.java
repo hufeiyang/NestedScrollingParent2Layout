@@ -526,7 +526,7 @@ public class MainActivity extends AppCompatActivity {
 
         initDrawerLayout();
 
-        initCustomWindow();
+//        initCustomWindow();
     }
 
     private void initToolbar() {

@@ -17,7 +17,6 @@ import com.hfy.demo01.R;
  * 处理 header + recyclerView
  * Description:NestedScrolling2机制下的嵌套滑动，实现NestedScrollingParent2接口下，处理fling效果的区别
  *
- * @author hufeiyang
  */
 public class NestedScrollingParent2LayoutImpl2 extends NestedScrollingParent2Layout implements NestedScrollingParent2 {
 
