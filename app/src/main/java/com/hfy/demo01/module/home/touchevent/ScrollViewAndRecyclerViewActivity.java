@@ -2,6 +2,7 @@ package com.hfy.demo01.module.home.touchevent;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentActivity;
@@ -11,6 +12,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.hfy.demo01.R;
 import com.hfy.demo01.module.home.touchevent.fragment.DataBean;
 import com.hfy.demo01.module.home.touchevent.fragment.NestedScrollTestRecyclerViewAdapter;
+import com.hfy.demo01.module.home.touchevent.view.NestedScrollingParent2LayoutImpl2;
 
 import java.util.ArrayList;
 
@@ -26,6 +28,7 @@ public class ScrollViewAndRecyclerViewActivity extends AppCompatActivity {
 
     @BindView(R.id.recyclerView)
     RecyclerView recyclerView;
+    private int mType;
 
     public static void launch(FragmentActivity activity, int type) {
         Intent intent = new Intent(activity, ScrollViewAndRecyclerViewActivity.class);
@@ -39,17 +42,27 @@ public class ScrollViewAndRecyclerViewActivity extends AppCompatActivity {
         Intent intent = getIntent();
 
 
-        int type = intent.getIntExtra("type", 0);
-        if (type ==1) {
+        mType = intent.getIntExtra("type", 0);
+        if (mType ==1) {
             setContentView(R.layout.activity_scroll_view_and_recycler_view);
-        } else if (type ==2){
+        } else if (mType ==2){
             setContentView(R.layout.activity_nested_scroll_view_and_recycler_view);
-        }else if (type ==3){
+        }else if (mType ==3){
             setContentView(R.layout.activity_scroll_view_parent2_view_and_recycler_view);
         }
 
         ButterKnife.bind(this);
 
+        if (mType ==3){
+            NestedScrollingParent2LayoutImpl2 nestedScrollingParent2 = findViewById(R.id.nested_layout);
+            View header = findViewById(R.id.tv_head);
+            nestedScrollingParent2.setHeader(header);
+        }
+
+        initRecyclerView();
+    }
+
+    private void initRecyclerView() {
         ArrayList<DataBean> dataBeans = new ArrayList<>();
         dataBeans.add(new DataBean(1 + "TextView", "https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=2650138538,1827686917&fm=15&gp=0.jpg"));
         dataBeans.add(new DataBean(2 + "TextView", "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1582440395993&di=16f2a6878f4b5d76e2122b008b80da0e&imgtype=0&src=http%3A%2F%2Fn.sinaimg.cn%2Fsinacn11%2F266%2Fw1600h1066%2F20180318%2F8390-fyshfur1533535.jpg"));

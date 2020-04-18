@@ -5,6 +5,7 @@ import android.os.Bundle;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.viewpager.widget.ViewPager;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -34,7 +35,9 @@ public class NestedScrollTestFragment extends Fragment {
     private String mParam2;
 
     private NestedScrollingParent2LayoutImpl3 mNestedScrollingParent2Layout;
-    private boolean mDoLazyLoadLater;
+
+
+    private int mFragmentIndex;
 
     public NestedScrollTestFragment() {
         // Required empty public constructor
@@ -119,26 +122,39 @@ public class NestedScrollTestFragment extends Fragment {
     public void setUserVisibleHint(boolean visibleToUser) {
         super.setUserVisibleHint(visibleToUser);
 
-        if (visibleToUser) {
-            if (getView() != null) {
-                if (mNestedScrollingParent2Layout != null) {
-                    mNestedScrollingParent2Layout.setChildRecyclerView(recyclerView);
-                }
-            } else {
-                //如果当前 view 还没有准备好，那么需要延迟加载，用一个变量表示，用于后面 view 处理好后(onStart())，再去加载
-                mDoLazyLoadLater = true;
+        if (visibleToUser && isCurrentDisplayedFragment()) {
+            if (mNestedScrollingParent2Layout != null) {
+                mNestedScrollingParent2Layout.setChildRecyclerView(recyclerView);
             }
         }
     }
 
     @Override
-    public void onStart() {
-        super.onStart();
-        if (mDoLazyLoadLater) {
+    public void onResume() {
+        super.onResume();
+
+        if (isCurrentDisplayedFragment()) {
             if (mNestedScrollingParent2Layout != null) {
                 mNestedScrollingParent2Layout.setChildRecyclerView(recyclerView);
             }
         }
+    }
+
+    /**
+     * 是当前展示的fragment
+     * @return
+     */
+    private boolean isCurrentDisplayedFragment() {
+        if (getView() == null || !(getView().getParent() instanceof View)) {
+            return false;
+        }
+        View parent = (View) getView().getParent();
+        if (parent instanceof ViewPager) {
+            ViewPager viewPager = (ViewPager) parent;
+            int currentItem = viewPager.getCurrentItem();
+            return currentItem == mFragmentIndex;
+        }
+        return false;
     }
 
     @Override
@@ -149,5 +165,9 @@ public class NestedScrollTestFragment extends Fragment {
 
     public void setNestedParentLayout(NestedScrollingParent2LayoutImpl3 nestedScrollingParent2Layout) {
         mNestedScrollingParent2Layout = nestedScrollingParent2Layout;
+    }
+
+    public void setIndex(int i) {
+        mFragmentIndex = i;
     }
 }

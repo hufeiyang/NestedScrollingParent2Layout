@@ -14,7 +14,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.hfy.demo01.R;
 
 /**
- * 处理 header + recyclerView
+ * 处理 header + recyclerView 的 嵌套滑动，且保证 recyclerView复用机制不失效
  * Description:NestedScrolling2机制下的嵌套滑动，实现NestedScrollingParent2接口下，处理fling效果的区别
  *
  */
@@ -22,7 +22,8 @@ public class NestedScrollingParent2LayoutImpl2 extends NestedScrollingParent2Lay
 
 
     private View mTopView;
-    private View mRecylerVIew;
+
+    private View mRecyclerView;
 
     private int mTopViewHeight;
 
@@ -94,20 +95,44 @@ public class NestedScrollingParent2LayoutImpl2 extends NestedScrollingParent2Lay
         super.onMeasure(widthMeasureSpec, heightMeasureSpec);
 
         //这里修改mRecylerVIew的高度为屏幕高度，否则底部会出现空白。（因为scrollTo方法是滑动子view，就把mRecylerVIew滑上去了）
-        ViewGroup.LayoutParams layoutParams = mRecylerVIew.getLayoutParams();
+        ViewGroup.LayoutParams layoutParams = mRecyclerView.getLayoutParams();
         layoutParams.height = getMeasuredHeight();
-        mRecylerVIew.setLayoutParams(layoutParams);
+        mRecyclerView.setLayoutParams(layoutParams);
         super.onMeasure(widthMeasureSpec, heightMeasureSpec);
     }
 
     @Override
     protected void onFinishInflate() {
         super.onFinishInflate();
-        mTopView = findViewById(R.id.tv_head);
-        mRecylerVIew = findViewById(R.id.recyclerView);
-        if (!(mRecylerVIew instanceof RecyclerView)) {
-            throw new RuntimeException("id RecyclerView should be RecyclerView!");
+
+        mRecyclerView = getRecyclerView(this);
+    }
+
+    /**
+     * 设置 嵌套滑动的header
+     * @return
+     */
+    public View setHeader(View header) {
+        mTopView = header;
+        return header;
+    }
+
+    /**
+     * 自动 获取 嵌套滑动的 RecyclerView
+     * @param viewGroup
+     * @return
+     */
+    private RecyclerView getRecyclerView(ViewGroup viewGroup) {
+        int childCount = viewGroup.getChildCount();
+        for (int i = 0; i < childCount; i++) {
+            View childAt = getChildAt(i);
+            if (childAt instanceof RecyclerView) {
+                if (mRecyclerView == null) {
+                    return (RecyclerView) childAt;
+                }
+            }
         }
+        return null;
     }
 
     @Override

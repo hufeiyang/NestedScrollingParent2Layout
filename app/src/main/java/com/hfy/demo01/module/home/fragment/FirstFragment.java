@@ -6,18 +6,19 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Bundle;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.core.app.ActivityCompat;
-import androidx.fragment.app.Fragment;
-import androidx.core.content.ContextCompat;
-import androidx.appcompat.app.AlertDialog;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
+import androidx.fragment.app.Fragment;
 
 import com.hfy.demo01.R;
 import com.hfy.demo01.module.home.animation.AnimationTestActivity;
@@ -26,11 +27,9 @@ import com.hfy.demo01.module.home.designsupportlibrarytest.MaterialDesignWidgetA
 import com.hfy.demo01.module.home.designsupportlibrarytest.NotificationActivity;
 import com.hfy.demo01.module.home.designsupportlibrarytest.ViewEventTestActivity;
 import com.hfy.demo01.module.home.leaktest.LeakTestActivity;
-import com.hfy.demo01.module.home.touchevent.NestedScrollTestActivity;
 import com.hfy.demo01.module.home.touchevent.TouchEventTestEnterActivity;
 import com.hfy.demo01.module.mvp.view.MvpActivity;
 import com.hfy.simpleimageloader.ImageLoader;
-import com.pixplicity.sharp.Sharp;
 
 import java.util.ArrayList;
 
@@ -44,7 +43,7 @@ public class FirstFragment extends Fragment {
 
     private static final int PERMISSIOINS_REQUEST_CODE_CALL = 1000;
     private static final String TAG = "FirstFragment";
-    @BindView(R.id.button)
+    @BindView(R.id.btn_mvvm_test)
     Button mButton;
 
     @BindView(R.id.btn_go_to_notification_activity)
@@ -88,38 +87,7 @@ public class FirstFragment extends Fragment {
     public void onResume() {
         super.onResume();
 
-        //Sharp 加载SVG文件
-//        Sharp.loadResource(getResources(), R.raw.text).into(mImageView);
-
-        //glide-svg 库里面的方法， 清晰
-//        RequestBuilder<PictureDrawable> requestBuilder = GlideApp.with(this)
-//                .as(PictureDrawable.class)
-//                .transition(withCrossFade())
-//                .listener(new SvgSoftwareLayerSetter());
-//        requestBuilder.load("http://www.webhek.com/wordpress/wp-content/uploads/2014/05/kiwi.svg").into(viewImage1);
-//        requestBuilder.load(R.raw.text).into(mImageView);
-
-
-        //可以加载svg图片?，不过显示没有上面那种方式清晰(** 实测不行啊啊啊啊啊 )
-//        Glide.with(this).load("http://www.webhek.com/wordpress/wp-content/uploads/2014/05/kiwi.svg").into(mImageView);
-//        Glide.with(this).load(R.raw.text).into(mImageView);
-
-        //这种方法？？？
-//        GenericRequestBuilder<Uri, InputStream, SVG, PictureDrawable> requestBuilder = Glide.with(this)
-//                .using(Glide.buildStreamModelLoader(Uri.class, this), InputStream.class)
-//                .from(Uri.class)
-//                .as(SVG.class)
-//                .transcode(new SvgDrawableTranscoder(), PictureDrawable.class)
-//                .sourceEncoder(new StreamEncoder())
-//                .cacheDecoder(new FileToStreamDecoder<>(new SVGDecoder()))
-//                .decoder(new SVGDecoder())
-//                .listener(new SvgSoftwareLayerSetter<Uri>());
-//
-//        requestBuilder
-//                .diskCacheStrategy(DiskCacheStrategy.NONE)
-//                .load(Uri.parse("http://www.webhek.com/wordpress/wp-content/uploads/2014/05/kiwi.svg"))
-//                .into(cardHolder.iv_card);
-
+        //test自定义的ImageLoader
         String url = "http://a1.att.hudong.com/05/00/01300000194285122188000535877.jpg";
         ViewGroup.LayoutParams layoutParams = mImageView.getLayoutParams();
         ImageLoader.with(this.getContext()).loadBitmapAsync(url,mImageView, layoutParams.width, layoutParams.height);
@@ -134,7 +102,7 @@ public class FirstFragment extends Fragment {
         autoVerticalScrollTextView.start();
     }
 
-    @OnClick({R.id.button,
+    @OnClick({R.id.btn_mvvm_test,
             R.id.btn_go_to_notification_activity,
             R.id.btn_go_to_call_activity,
             R.id.btn_go_to_material_design_activity,
@@ -147,7 +115,7 @@ public class FirstFragment extends Fragment {
     })
     public void onClick(View view) {
         switch (view.getId()) {
-            case R.id.button:
+            case R.id.btn_mvvm_test:
                 MvpActivity.launch(getActivity());
                 break;
             case R.id.btn_go_to_notification_activity:

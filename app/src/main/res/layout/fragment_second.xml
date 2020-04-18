@@ -5,8 +5,16 @@
     android:layout_height="match_parent">
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/btn_mvvm_test"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Button" />
+        android:textAllCaps="false"
+        android:text="MVVM" />
+
+    <Button
+        android:id="@+id/btn_glide_test"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAllCaps="false"
+        android:text="Glide" />
 </LinearLayout>

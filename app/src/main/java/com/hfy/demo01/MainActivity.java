@@ -94,7 +94,7 @@ public class MainActivity extends AppCompatActivity {
 
     He he = new He();
 
-    private String[] titles = {"头条", "新闻", "娱乐"};
+    private String[] titles = {"艺术探索", "进阶实战"};
 
     /**
      * 首页fragments
@@ -515,7 +515,7 @@ public class MainActivity extends AppCompatActivity {
         //PagerAdapter
         fragments.add(new FirstFragment());
         fragments.add(new SecondFragment());
-        fragments.add(new FirstFragment());
+
         HomePagerAdapter adapter = new HomePagerAdapter(getSupportFragmentManager(), titles, fragments);
         mVpHomePage.setAdapter(adapter);
 

@@ -10,7 +10,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".module.home.touchevent.RecyclerViewAndRecyclerViewActivity"></activity>
+        <activity android:name=".module.home.glide.GlideTestActivity"></activity>
+        <activity android:name=".module.home.touchevent.RecyclerViewAndRecyclerViewActivity" />
         <activity android:name=".module.home.touchevent.TouchEventTestEnterActivity" />
         <activity android:name=".module.home.touchevent.ScrollViewAndRecyclerViewActivity" />
         <activity android:name=".module.home.bitmap.BitmapTestActivity" />
@@ -42,15 +43,13 @@
             </intent-filter>
         </service>
         <service android:name=".MainActivity$MyIntentService" />
-
-        <service android:name=".binder.aidl.BookManagerService"/>
+        <service android:name=".binder.aidl.BookManagerService" />
     </application>
-
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.CALL_PHONE" />
     <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
-
     <uses-permission android:name="android.permission.INTERNET" />
+
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
 </manifest>

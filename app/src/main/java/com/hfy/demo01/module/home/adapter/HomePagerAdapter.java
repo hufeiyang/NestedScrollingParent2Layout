@@ -3,11 +3,12 @@ package com.hfy.demo01.module.home.adapter;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentPagerAdapter;
 import androidx.fragment.app.FragmentStatePagerAdapter;
 
 import java.util.List;
 
-public class HomePagerAdapter extends FragmentStatePagerAdapter {
+public class HomePagerAdapter extends FragmentPagerAdapter {
 
     private final String[] mTitles;
     private List<Fragment> mFragments;
@@ -34,4 +35,6 @@ public class HomePagerAdapter extends FragmentStatePagerAdapter {
     public CharSequence getPageTitle(int position) {
         return mTitles[position];
     }
+
+
 }

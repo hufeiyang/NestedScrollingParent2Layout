@@ -62,6 +62,7 @@ public class RecyclerNestAdapter extends BaseMultiItemQuickAdapter<MultiItemEnti
         List<Fragment> fragments = new ArrayList<>();
         for (int i = 0; i < 3; i++) {
             NestedScrollTestFragment fragment = new NestedScrollTestFragment();
+            fragment.setIndex(i);
             fragment.setNestedParentLayout(mNestedScrollingParent2Layout);
             fragments.add(fragment);
         }
