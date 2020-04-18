@@ -4,7 +4,7 @@
     android:id="@+id/nested_scrolling_parent2_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".module.home.touchevent.RecyclerViewAndRecyclerViewActivity">
+    tools:context=".RecyclerViewAndRecyclerViewActivity">
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView_parent"

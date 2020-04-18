@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.hfy.nestedscrolling.module.home.touchevent.view.NestedScrollingParent2LayoutImpl2 xmlns:android="http://schemas.android.com/apk/res/android"
+<com.hfy.nested_scrolling_layout2.NestedScrollingParent2LayoutImpl2 xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nested_layout"
     android:layout_width="match_parent"
@@ -23,4 +23,4 @@
         android:layout_height="match_parent"
         android:background="@color/design_default_color_primary" />
 
-</com.hfy.nestedscrolling.module.home.touchevent.view.NestedScrollingParent2LayoutImpl2>
+</com.hfy.nested_scrolling_layout2.NestedScrollingParent2LayoutImpl2>
