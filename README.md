@@ -18,29 +18,28 @@ Add it in your root build.gradle at the end of repositories:
 			maven { url 'https://jitpack.io' }
 		}
 	}
-  
 Step 2. Add the dependency
 
 	dependencies {
-	        implementation 'com.github.hufeiyang:NestedScrollingParent2Layout:Tag'
+	        implementation 'com.github.hufeiyang:NestedScrollingParent2Layout:1.0'
 	}
 
 
-## NestedScrollingParent2LayoutImpl1
+1、 NestedScrollingParent2LayoutImpl1
 使用场景：处理 header + tab + viewPager + recyclerView，且保证 recyclerView复用机制不失效
 
-## NestedScrollingParent2LayoutImpl2
+2、NestedScrollingParent2LayoutImpl2
 使用场景：处理 header + recyclerView 的 嵌套滑动，且保证 recyclerView复用机制不失效
 
 ![在这里插入图片描述](https://img-blog.csdnimg.cn/202004052230284.gif#pic_center)
 
-## NestedScrollingParent2LayoutImpl3
+3、 NestedScrollingParent2LayoutImpl3
 使用场景：处理RecyclerView 套viewPager， viewPager内的fragment中 也有RecyclerView，处理外层、内层 RecyclerView的嵌套滑动问题，类似淘宝、京东首页。
 
 ![在这里插入图片描述](https://img-blog.csdnimg.cn/20200405223817325.gif#pic_center)
 
 
-## NestedScrollingParent2Layout
+4、 NestedScrollingParent2Layout
 使用场景：可继承此layout写自己的滑动逻辑即可。
 
 
