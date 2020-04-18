@@ -7,7 +7,7 @@ android {
     compileSdkVersion 28
 
     defaultConfig {
-        applicationId "com.hfy.demo01"
+        applicationId "com.hfy.nestedscrolling"
         //minSdkVersion 则是应用可以运行的最低要求。minSdkVersion 是 Google Play 商店用来判断用户设备是否可以安装某个应用的标志之一。
         minSdkVersion 16
         //targetSdkVersion是Android提供向前兼容的主要依据，表明该application已经兼容从minSdkVersion至tartgetSdkVersion之间所有api的变化。在targetSdkVersion更新之前系统不会应用最新的行为变化
@@ -84,7 +84,8 @@ dependencies {
     implementation 'com.jakewharton:disklrucache:2.0.2'
 
     //我的简单图片加载库
-    implementation project(path: ':simpleimageloader')
+    implementation 'com.hfy.imageloader:imageloader:1.0.0'
+
 
     //BRVAH
     implementation 'com.github.CymChad:BaseRecyclerViewAdapterHelper:3.0.2'

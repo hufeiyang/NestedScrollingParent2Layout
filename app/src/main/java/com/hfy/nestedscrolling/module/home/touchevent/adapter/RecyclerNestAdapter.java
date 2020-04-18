@@ -10,13 +10,13 @@ import com.chad.library.adapter.base.BaseMultiItemQuickAdapter;
 import com.chad.library.adapter.base.entity.MultiItemEntity;
 import com.chad.library.adapter.base.viewholder.BaseViewHolder;
 import com.google.android.material.tabs.TabLayout;
+import com.hfy.imageloader.ImageLoader;
 import com.hfy.nestedscrolling.R;
 import com.hfy.nestedscrolling.module.home.adapter.HomePagerAdapter;
 import com.hfy.nestedscrolling.module.home.touchevent.fragment.DataBean;
 import com.hfy.nestedscrolling.module.home.touchevent.fragment.NestedScrollTestFragment;
 import com.hfy.nestedscrolling.module.home.touchevent.fragment.ViewPagerBean;
 import com.hfy.nestedscrolling.module.home.touchevent.view.NestedScrollingParent2LayoutImpl3;
-import com.hfy.simpleimageloader.ImageLoader;
 
 import java.util.ArrayList;
 import java.util.List;

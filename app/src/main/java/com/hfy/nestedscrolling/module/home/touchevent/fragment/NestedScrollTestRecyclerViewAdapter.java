@@ -11,8 +11,8 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.hfy.imageloader.ImageLoader;
 import com.hfy.nestedscrolling.R;
-import com.hfy.simpleimageloader.ImageLoader;
 
 import java.util.ArrayList;
 

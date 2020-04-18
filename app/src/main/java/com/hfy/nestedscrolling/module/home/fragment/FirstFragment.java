@@ -20,6 +20,7 @@ import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 
+import com.hfy.imageloader.ImageLoader;
 import com.hfy.nestedscrolling.R;
 import com.hfy.nestedscrolling.module.home.animation.AnimationTestActivity;
 import com.hfy.nestedscrolling.module.home.bitmap.BitmapTestActivity;
@@ -29,7 +30,6 @@ import com.hfy.nestedscrolling.module.home.designsupportlibrarytest.ViewEventTes
 import com.hfy.nestedscrolling.module.home.leaktest.LeakTestActivity;
 import com.hfy.nestedscrolling.module.home.touchevent.TouchEventTestEnterActivity;
 import com.hfy.nestedscrolling.module.mvp.view.MvpActivity;
-import com.hfy.simpleimageloader.ImageLoader;
 
 import java.util.ArrayList;
 
