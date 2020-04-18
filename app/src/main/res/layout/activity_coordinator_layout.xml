@@ -7,7 +7,7 @@
     android:fitsSystemWindows="true"
     tools:context=".MainActivity">
 
-    <com.hfy.demo01.common.customview.MovingView
+    <com.hfy.nestedscrolling.common.customview.MovingView
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:background="@mipmap/blue"/>

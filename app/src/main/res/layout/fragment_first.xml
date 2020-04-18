@@ -77,22 +77,22 @@
             android:text="bitmap测试"
             android:textAllCaps="false"/>
 
-        <com.hfy.demo01.module.home.fragment.AutoSwitchTextView
+        <com.hfy.nestedscrolling.module.home.fragment.AutoSwitchTextView
             android:id="@+id/autoSwitchTextView"
             android:layout_marginTop="30dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content">
 
-        </com.hfy.demo01.module.home.fragment.AutoSwitchTextView>
+        </com.hfy.nestedscrolling.module.home.fragment.AutoSwitchTextView>
 
-        <com.hfy.demo01.module.home.fragment.AutoVerticalScrollTextView
+        <com.hfy.nestedscrolling.module.home.fragment.AutoVerticalScrollTextView
             android:id="@+id/autoverticalscrolltextview"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:layout_marginLeft="10dp">
 
-        </com.hfy.demo01.module.home.fragment.AutoVerticalScrollTextView>
+        </com.hfy.nestedscrolling.module.home.fragment.AutoVerticalScrollTextView>
 
 
 

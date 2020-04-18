@@ -14,7 +14,7 @@
         <!--<import type="java.util.Map" />-->
 
         <!--&lt;!&ndash;导入&ndash;&gt;-->
-        <import type="com.hfy.demo01.module.mvvm.bean.Man" />
+        <import type="com.hfy.nestedscrolling.module.mvvm.bean.Man" />
 
         <!--<import type="com.hfy.demo01.module.mvvm.Utils" />-->
 

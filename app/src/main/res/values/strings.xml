@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Demo01</string>
+    <string name="app_name">NestedScrollingLayout</string>
     <string name="drawer_open">抽屉打开</string>
     <string name="close">抽屉关闭</string>
     <string name="titlebar_search_hint">search</string>

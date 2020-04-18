@@ -4,7 +4,7 @@
     <data>
         <variable
             name="man"
-            type="com.hfy.demo01.module.mvvm.bean.Man" />
+            type="com.hfy.nestedscrolling.module.mvvm.bean.Man" />
     </data>
 
     <LinearLayout
