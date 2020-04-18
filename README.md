@@ -14,6 +14,8 @@ https://blog.csdn.net/hfy8971613/article/details/105331221
 
 ## NestedScrollingParent2LayoutImpl3
 使用场景：处理RecyclerView 套viewPager， viewPager内的fragment中 也有RecyclerView，处理外层、内层 RecyclerView的嵌套滑动问题，类似淘宝、京东首页
+![按分析的view结构直接实现](https://img-blog.csdnimg.cn/20200405192924217.gif#pic_center)
+
 
 ## NestedScrollingParent2Layout
 使用场景：可继承此layout写自己的滑动逻辑即可。
