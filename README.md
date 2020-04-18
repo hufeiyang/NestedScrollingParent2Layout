@@ -1,13 +1,11 @@
 
 # 概要：
-
 滑动嵌套通用解决方案：提供常见三种RecyclerView滑动嵌套布局、也可自定义。
 
 详细见我的blog：
 https://blog.csdn.net/hfy8971613/article/details/105331221
 
 # 依赖
-
 Step 1. Add the JitPack repository to your build file
 
 Add it in your root build.gradle at the end of repositories:
@@ -25,6 +23,7 @@ Step 2. Add the dependency
 	}
 
 
+# 使用说明
 1、 NestedScrollingParent2LayoutImpl1
 使用场景：处理 header + tab + viewPager + recyclerView，且保证 recyclerView复用机制不失效
 
