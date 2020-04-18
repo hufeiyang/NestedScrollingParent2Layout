@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:paddingTop="80dp"
-    tools:context=".module.home.touchevent.TouchEventTestEnterActivity">
+    tools:context=".MainActivity">
 
 
     <Button

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.hfy.nestedscrolling.module.home.touchevent.view.NestedScrollingParent2LayoutImpl1
+<com.hfy.nested_scrolling_layout2.NestedScrollingParent2LayoutImpl1
     xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/nested_scrolling_parent2_layout_impl1"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
@@ -33,4 +34,4 @@
     <!--</LinearLayout>-->
 
 
-</com.hfy.nestedscrolling.module.home.touchevent.view.NestedScrollingParent2LayoutImpl1>
+</com.hfy.nested_scrolling_layout2.NestedScrollingParent2LayoutImpl1>

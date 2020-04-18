@@ -10,41 +10,17 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name="com.hfy.nestedscrolling.module.home.glide.GlideTestActivity"></activity>
-        <activity android:name="com.hfy.nestedscrolling.module.home.touchevent.RecyclerViewAndRecyclerViewActivity" />
-        <activity android:name="com.hfy.nestedscrolling.module.home.touchevent.TouchEventTestEnterActivity" />
-        <activity android:name="com.hfy.nestedscrolling.module.home.touchevent.ScrollViewAndRecyclerViewActivity" />
-        <activity android:name="com.hfy.nestedscrolling.module.home.bitmap.BitmapTestActivity" />
-        <activity android:name="com.hfy.nestedscrolling.module.home.animation.AnimationTestActivity" />
-        <activity android:name="com.hfy.nestedscrolling.module.home.leaktest.LeakTestActivity" />
-        <activity android:name="com.hfy.nestedscrolling.module.home.touchevent.NestedScrollTestActivity" />
         <activity android:name="com.hfy.nestedscrolling.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="com.hfy.nestedscrolling.module.mvp.view.MvpActivity" />
-        <activity android:name="com.hfy.nestedscrolling.module.mvvm.MvvmActivity" />
-        <activity android:name="com.hfy.nestedscrolling.module.home.designsupportlibrarytest.NotificationActivity" />
-        <activity android:name="com.hfy.nestedscrolling.module.home.designsupportlibrarytest.MaterialDesignWidgetActivity" />
-        <activity android:name="com.hfy.nestedscrolling.module.home.designsupportlibrarytest.ViewEventTestActivity" />
-        <activity android:name="com.hfy.nestedscrolling.module.home.designsupportlibrarytest.BehaviorTestActivity" />
-
-        <service android:name="com.hfy.nestedscrolling.common.push.MyFirebaseInstanceIdService">
-            <intent-filter>
-                <action android:name="com.google.firebase.INSTANCE_ID_EVENT" />
-            </intent-filter>
-        </service>
-        <service android:name="com.hfy.nestedscrolling.common.push.MYFirebaseMessagingService">
-            <intent-filter>
-                <action android:name="com.google.firebase.MESSAGING_EVENT" />
-            </intent-filter>
-        </service>
-        <service android:name="com.hfy.nestedscrolling.MainActivity$MyIntentService" />
-        <service android:name="com.hfy.nestedscrolling.binder.aidl.BookManagerService" />
+        <activity android:name="com.hfy.nestedscrolling.RecyclerViewAndRecyclerViewActivity" />
+        <activity android:name="com.hfy.nestedscrolling.ScrollViewAndRecyclerViewActivity" />
+        <activity android:name="com.hfy.nestedscrolling.NestedScrollTestActivity" />
     </application>
+
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.CALL_PHONE" />
     <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />

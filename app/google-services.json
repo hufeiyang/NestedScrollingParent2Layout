@@ -10,7 +10,7 @@
       "client_info": {
         "mobilesdk_app_id": "1:564470958088:android:1f137c06410387ae",
         "android_client_info": {
-          "package_name": "com.hfy.demo01"
+          "package_name": "com.hfy.nestedscrolling"
         }
       },
       "oauth_client": [
@@ -18,7 +18,7 @@
           "client_id": "564470958088-l04kk0d62qflvq7l0lobnfsr9cqlf268.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
-            "package_name": "com.hfy.demo01",
+            "package_name": "com.hfy.nestedscrolling",
             "certificate_hash": "d39f833ef4951cf388e168dc5f961f764ae3dc07"
           }
         },

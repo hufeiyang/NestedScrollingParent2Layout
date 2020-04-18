@@ -89,6 +89,7 @@ dependencies {
 
     //BRVAH
     implementation 'com.github.CymChad:BaseRecyclerViewAdapterHelper:3.0.2'
+    implementation project(path: ':nested_scrolling_layout2')
 
 
     //titlebar
