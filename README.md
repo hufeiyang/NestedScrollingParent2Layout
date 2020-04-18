@@ -6,6 +6,11 @@
 详细见我的blog：
 https://blog.csdn.net/hfy8971613/article/details/105331221
 
+# 依赖
+
+[![](https://jitpack.io/v/hufeiyang/NestedScrollingParent2Layout.svg)](https://jitpack.io/#hufeiyang/NestedScrollingParent2Layout)
+
+
 ## NestedScrollingParent2LayoutImpl1
 使用场景：处理 header + tab + viewPager + recyclerView，且保证 recyclerView复用机制不失效
 
