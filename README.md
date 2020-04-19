@@ -7,9 +7,7 @@ https://blog.csdn.net/hfy8971613/article/details/105331221
 
 # 依赖
 
-
-implementation 'com.hfy.nestedscrollinglayout:nestedscrollinglayout:1.0.0'
-
+> implementation 'com.hfy.nestedscrollinglayout:nestedscrollinglayout:1.0.1'
 
 
 # 使用说明
