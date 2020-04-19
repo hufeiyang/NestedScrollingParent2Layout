@@ -33,6 +33,7 @@ public class RecyclerNestAdapter extends BaseMultiItemQuickAdapter<MultiItemEnti
     private String[] titles = {"头条", "新闻", "娱乐"};
 
     private NestedScrollingParent2LayoutImpl3 mNestedScrollingParent2Layout;
+    private int mSelectedPosition;
 
 
     public RecyclerNestAdapter(FragmentActivity activity) {
@@ -71,6 +72,20 @@ public class RecyclerNestAdapter extends BaseMultiItemQuickAdapter<MultiItemEnti
         ViewPager viewPager = (ViewPager) baseViewHolder.getView(R.id.view_pager);
         viewPager.setAdapter(adapter);
 
+        viewPager.setCurrentItem(mSelectedPosition);
+        viewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+            @Override
+            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+            }
+            @Override
+            public void onPageSelected(int position) {
+                mSelectedPosition = position;
+            }
+            @Override
+            public void onPageScrollStateChanged(int state) {
+            }
+        });
+
         TabLayout tab = (TabLayout) baseViewHolder.getView(R.id.tab_layout);
         tab.setupWithViewPager(viewPager);
 
@@ -83,6 +98,7 @@ public class RecyclerNestAdapter extends BaseMultiItemQuickAdapter<MultiItemEnti
                 }
             });
         }
+
     }
 
     private void convertNormal(BaseViewHolder baseViewHolder, DataBean dataBean) {

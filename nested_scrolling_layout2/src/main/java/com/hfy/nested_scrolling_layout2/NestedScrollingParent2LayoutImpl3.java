@@ -79,9 +79,13 @@ public class NestedScrollingParent2LayoutImpl3 extends NestedScrollingParent2Lay
 
         if (target == mParentRecyclerView) {
             handleParentRecyclerViewScroll(lastItemTop, dy, consumed);
-        } else if (target == mChildRecyclerView) {
-            handleChildRecyclerViewScroll(lastItemTop, dy, consumed);
         }
+
+        //因为RecyclerView是默认拦截滑动事件，所以不会走这个分支了
+//        else if (target == mChildRecyclerView) {
+//            handleChildRecyclerViewScroll(lastItemTop, dy, consumed);
+//        }
+
     }
 
     /**
@@ -121,8 +125,8 @@ public class NestedScrollingParent2LayoutImpl3 extends NestedScrollingParent2Lay
                     consumed[1] = dy;
                 }else {
                     //内层已滚动的距离，小于想要滚动的距离，那么内层消费一部分，到顶后，剩的还给外层自行滑动
-                    mChildRecyclerView.scrollBy(0, -(Math.abs(dy)-childScrolledY));
-                    consumed[1] = -(Math.abs(dy)-childScrolledY);
+                    mChildRecyclerView.scrollBy(0, childScrolledY);
+                    consumed[1] = -childScrolledY;
                 }
             }
         }
@@ -138,39 +142,39 @@ public class NestedScrollingParent2LayoutImpl3 extends NestedScrollingParent2Lay
      */
     private void handleChildRecyclerViewScroll(int lastItemTop, int dy, int[] consumed) {
         //tab上边没到顶
-        if (lastItemTop != 0) {
-            if (dy > 0) {
-                //向上滑
-                if (lastItemTop > dy) {
-                    //tab的top>想要滑动的dy,外层直接消耗掉
-                    mParentRecyclerView.scrollBy(0, dy);
-                    consumed[1] = dy;
-                } else {
-                    //tab的top<=想要滑动的dy,先滑外层，消耗距离为lastItemTop，刚好到顶；剩下的就滑内层了。
-                    mParentRecyclerView.scrollBy(0, lastItemTop);
-                    consumed[1] = dy - lastItemTop;
-                }
-            } else {
-                //向下滑，外层直接消耗
-                mParentRecyclerView.scrollBy(0, dy);
-                consumed[1] = dy;
-            }
-        }else {
-            //tab上边到顶了
-            if (dy > 0){
-                //向上，内层自行处理
-            }else {
-                int childScrolledY = mChildRecyclerView.computeVerticalScrollOffset();
-                if (childScrolledY > Math.abs(dy)) {
-                    //内层已滚动的距离，大于想要滚动的距离，内层自行处理
-                }else {
-                    //内层已滚动的距离，小于想要滚动的距离，那么内层消费一部分，到顶后，剩的外层滑动
-                    mChildRecyclerView.scrollBy(0, -childScrolledY);
-                    mParentRecyclerView.scrollBy(0, -(Math.abs(dy)-childScrolledY));
-                    consumed[1] = dy;
-                }
-            }
-        }
+//        if (lastItemTop != 0) {
+//            if (dy > 0) {
+//                //向上滑
+//                if (lastItemTop > dy) {
+//                    //tab的top>想要滑动的dy,外层直接消耗掉
+//                    mParentRecyclerView.scrollBy(0, dy);
+//                    consumed[1] = dy;
+//                } else {
+//                    //tab的top<=想要滑动的dy,先滑外层，消耗距离为lastItemTop，刚好到顶；剩下的就滑内层了。
+//                    mParentRecyclerView.scrollBy(0, lastItemTop);
+//                    consumed[1] = dy - lastItemTop;
+//                }
+//            } else {
+//                //向下滑，外层直接消耗
+//                mParentRecyclerView.scrollBy(0, dy);
+//                consumed[1] = dy;
+//            }
+//        }else {
+//            //tab上边到顶了
+//            if (dy > 0){
+//                //向上，内层自行处理
+//            }else {
+//                int childScrolledY = mChildRecyclerView.computeVerticalScrollOffset();
+//                if (childScrolledY > Math.abs(dy)) {
+//                    //内层已滚动的距离，大于想要滚动的距离，内层自行处理
+//                }else {
+//                    //内层已滚动的距离，小于想要滚动的距离，那么内层消费一部分，到顶后，剩的外层滑动
+//                    mChildRecyclerView.scrollBy(0, -childScrolledY);
+//                    mParentRecyclerView.scrollBy(0, -(Math.abs(dy)-childScrolledY));
+//                    consumed[1] = dy;
+//                }
+//            }
+//        }
     }
 
 
